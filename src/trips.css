@@ -15,7 +15,7 @@
 }
 
 .trips-page .site {
-  overflow: hidden;
+  overflow-x: clip;
 }
 
 /* Identical Navigation */
