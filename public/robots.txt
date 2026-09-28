@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://narmadaparikrama.com/sitemap.xml
+Sitemap: https://narmadaparikrama.co.in/sitemap.xml

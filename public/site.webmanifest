@@ -4,7 +4,7 @@
   "description": "Narmada Parikrama route, sacred places, pilgrimage planning and 2026 trips.",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#0f172a",
-  "background_color": "#fffaf2",
+  "theme_color": "#F8F7F3",
+  "background_color": "#F8F7F3",
   "lang": "en-IN"
 }

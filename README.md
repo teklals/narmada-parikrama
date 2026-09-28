@@ -41,7 +41,7 @@ npm run preview
 
 ## IMPORTANT: domain
 
-The project currently uses `https://narmadaparikrama.com` as the default SEO site URL in `robots.txt`, `sitemap.xml`, and JSON-LD. If the actual domain is different, replace it before deployment.
+The project currently uses `https://narmadaparikrama.co.in` as the default SEO site URL in `robots.txt`, `sitemap.xml`, and JSON-LD.
 
 For automated SEO-file generation:
 
