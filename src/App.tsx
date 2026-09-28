@@ -116,7 +116,7 @@ export default function App() {
     return () => window.removeEventListener('popstate', onPopState);
   }, []);
 
-  if (path === '/trips' || path === '/trips/') return <TripsPage />;
+  if (path === '/trips' || path === '/trips/' || path.startsWith('/trips')) return <TripsPage />;
 
   return (
     <>

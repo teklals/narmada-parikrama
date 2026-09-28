@@ -1,13 +1,14 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { resolve } from 'node:path';
 
 export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
       input: {
-        main: 'index.html',
-        trips: 'trips/index.html',
+        main: resolve(import.meta.dirname, 'index.html'),
+        trips: resolve(import.meta.dirname, 'trips/index.html'),
       },
     },
   },
