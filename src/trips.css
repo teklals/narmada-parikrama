@@ -357,6 +357,49 @@
   border-bottom: 1px solid var(--border);
 }
 
+/* Route Selector Pill Buttons */
+.trips-page .route-selector-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin: 24px 0 35px;
+  padding: 0 16px;
+}
+
+.trips-page .route-selector-btn {
+  padding: 10px 28px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-primary);
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  box-shadow: var(--shadow-sm);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.trips-page .route-selector-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.trips-page .route-selector-btn.active {
+  background: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+  box-shadow: 0 4px 14px rgba(79, 127, 247, 0.3);
+}
+
+.trips-page .route-selector-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
 .trips-page .timeline {
   max-width: 900px;
   margin: auto;

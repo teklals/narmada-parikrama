@@ -1,15 +1,34 @@
 import {
+  AlertTriangle,
   ArrowRight,
+  BedDouble,
   CalendarDays,
   Check,
+  CheckCircle,
+  CheckCircle2,
   ChevronDown,
   Clock3,
+  Compass,
+  CreditCard,
+  Droplets,
+  Footprints,
   Globe,
+  HeartHandshake,
+  HelpCircle,
+  Hotel,
   IndianRupee,
+  Info,
   MapPin,
   MapPinned,
   Menu,
+  Mountain,
+  ShieldCheck,
+  SignalHigh,
   Sparkles,
+  ThermometerSnowflake,
+  Users,
+  Utensils,
+  Wallet,
   X,
 } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
@@ -122,11 +141,10 @@ function Header({ isTrips, openPlanner, openMenu, closeMenu, menuOpen }: HeaderP
           <a className={!isTrips ? 'active' : ''} href={isTrips ? '/' : '#home'}>
             {t.nav.home}
           </a>
-          <a href={isTrips ? '/#about' : '#about'}>{t.nav.about}</a>
           <a href={isTrips ? '/#parikrama' : '#parikrama'}>{t.nav.parikrama}</a>
           <a href={isTrips ? '/#places' : '#places'}>{t.nav.places}</a>
-          <a href={isTrips ? '/#gallery' : '#gallery'}>{t.nav.gallery}</a>
-          <a href={isTrips ? '/#contact' : '#contact'}>{t.nav.contact}</a>
+          <a href={isTrips ? '/#route' : '#route'}>{t.nav.route}</a>
+          <a href={isTrips ? '/#travel-guide' : '#travel-guide'}>{t.nav.travelGuide}</a>
           <a className={isTrips ? 'active' : ''} href="/trips">
             {t.nav.trips}
           </a>
@@ -186,11 +204,7 @@ function MobileDrawer({ isOpen, onClose, isTrips, openPlanner }: MobileDrawerPro
 
   return (
     <>
-      <div
-        className="mobile-menu-backdrop"
-        onClick={onClose}
-        aria-hidden="true"
-      />
+      <div className="mobile-menu-backdrop" onClick={onClose} aria-hidden="true" />
       <div
         id="mobile-nav-panel"
         className="mobile-menu-drawer"
@@ -199,11 +213,7 @@ function MobileDrawer({ isOpen, onClose, isTrips, openPlanner }: MobileDrawerPro
         aria-label="Mobile navigation"
       >
         <div className="mobile-drawer-header">
-          <a
-            className="brand"
-            href={isTrips ? '/' : '#home'}
-            onClick={onClose}
-          >
+          <a className="brand" href={isTrips ? '/' : '#home'} onClick={onClose}>
             <span className="brand-mark">ॐ</span>
             <span>
               Narmada<br />
@@ -221,7 +231,31 @@ function MobileDrawer({ isOpen, onClose, isTrips, openPlanner }: MobileDrawerPro
         </div>
 
         <div className="mobile-drawer-body">
-          {/* Language Selection Grid */}
+          <nav className="mobile-nav-links" aria-label="Mobile links">
+            <a
+              className={`mobile-nav-item ${!isTrips ? 'active' : ''}`}
+              href={isTrips ? '/' : '#home'}
+              onClick={onClose}
+            >
+              {t.nav.home}
+            </a>
+            <a className="mobile-nav-item" href={isTrips ? '/#parikrama' : '#parikrama'} onClick={onClose}>
+              {t.nav.parikrama}
+            </a>
+            <a className="mobile-nav-item" href={isTrips ? '/#places' : '#places'} onClick={onClose}>
+              {t.nav.places}
+            </a>
+            <a className="mobile-nav-item" href={isTrips ? '/#route' : '#route'} onClick={onClose}>
+              {t.nav.route}
+            </a>
+            <a className="mobile-nav-item" href={isTrips ? '/#travel-guide' : '#travel-guide'} onClick={onClose}>
+              {t.nav.travelGuide}
+            </a>
+            <a className={`mobile-nav-item ${isTrips ? 'active' : ''}`} href="/trips" onClick={onClose}>
+              {t.nav.trips}
+            </a>
+          </nav>
+
           <div className="mobile-lang-section">
             <span className="mobile-lang-title">{t.nav.selectLanguage}</span>
             <div className="mobile-lang-grid">
@@ -238,59 +272,6 @@ function MobileDrawer({ isOpen, onClose, isTrips, openPlanner }: MobileDrawerPro
               ))}
             </div>
           </div>
-
-          {/* Navigation Links */}
-          <nav className="mobile-nav-links" aria-label="Mobile links">
-            <a
-              className={`mobile-nav-item ${!isTrips ? 'active' : ''}`}
-              href={isTrips ? '/' : '#home'}
-              onClick={onClose}
-            >
-              {t.nav.home}
-            </a>
-            <a
-              className="mobile-nav-item"
-              href={isTrips ? '/#about' : '#about'}
-              onClick={onClose}
-            >
-              {t.nav.about}
-            </a>
-            <a
-              className="mobile-nav-item"
-              href={isTrips ? '/#parikrama' : '#parikrama'}
-              onClick={onClose}
-            >
-              {t.nav.parikrama}
-            </a>
-            <a
-              className="mobile-nav-item"
-              href={isTrips ? '/#places' : '#places'}
-              onClick={onClose}
-            >
-              {t.nav.places}
-            </a>
-            <a
-              className="mobile-nav-item"
-              href={isTrips ? '/#gallery' : '#gallery'}
-              onClick={onClose}
-            >
-              {t.nav.gallery}
-            </a>
-            <a
-              className="mobile-nav-item"
-              href={isTrips ? '/#contact' : '#contact'}
-              onClick={onClose}
-            >
-              {t.nav.contact}
-            </a>
-            <a
-              className={`mobile-nav-item ${isTrips ? 'active' : ''}`}
-              href="/trips"
-              onClick={onClose}
-            >
-              {t.nav.trips}
-            </a>
-          </nav>
 
           <button
             type="button"
@@ -530,11 +511,7 @@ function PlanModal({ onClose }: PlanModalProps) {
         </div>
 
         <div className="modal-footer">
-          <button
-            type="submit"
-            className="modal-submit-btn"
-            disabled={status === 'submitting'}
-          >
+          <button type="submit" className="modal-submit-btn" disabled={status === 'submitting'}>
             {status === 'submitting' ? (
               <>
                 <Clock3 className="spin" size={18} style={{ marginRight: 8 }} />
@@ -550,12 +527,66 @@ function PlanModal({ onClose }: PlanModalProps) {
   );
 }
 
+function getChallengeIcon(name: string) {
+  switch (name) {
+    case 'Footprints':
+      return <Footprints size={22} />;
+    case 'ThermometerSnowflake':
+      return <ThermometerSnowflake size={22} />;
+    case 'Mountain':
+      return <Mountain size={22} />;
+    case 'CreditCard':
+      return <CreditCard size={22} />;
+    case 'BedDouble':
+      return <BedDouble size={22} />;
+    case 'SignalHigh':
+      return <SignalHigh size={22} />;
+    case 'Droplets':
+      return <Droplets size={22} />;
+    case 'Wallet':
+      return <Wallet size={22} />;
+    default:
+      return <AlertTriangle size={22} />;
+  }
+}
+
 function HomePage({ openPlanner }: { openPlanner: () => void }) {
   const { t } = useLanguage();
+  const [placesFilter, setPlacesFilter] = useState<'all' | 'mp' | 'mh' | 'gj'>('all');
+  const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
+
+  const filteredPlaces = t.home.places.filter((p) => {
+    if (placesFilter === 'all') return true;
+    if (placesFilter === 'mp') {
+      return [
+        'amarkantak',
+        'narmada-kund',
+        'sonmuda',
+        'kapildhara',
+        'doodh-dhara',
+        'mandla',
+        'jabalpur',
+        'gwarighat',
+        'bhedaghat',
+        'narmadapuram',
+        'omkareshwar',
+        'maheshwar',
+        'barwani',
+      ].includes(p.id);
+    }
+    if (placesFilter === 'mh') {
+      return ['shoolpani', 'maharashtra-section'].includes(p.id);
+    }
+    if (placesFilter === 'gj') {
+      return ['poicha', 'kevadia', 'rajpipla', 'ankleshwar', 'bharuch'].includes(p.id);
+    }
+    return true;
+  });
 
   return (
     <div className="site">
       <main>
+        {/* Hero Section */}
         <section id="home" className="hero">
           <div className="container hero-grid">
             <div>
@@ -566,27 +597,32 @@ function HomePage({ openPlanner }: { openPlanner: () => void }) {
                 {t.home.heroTitlePrefix}
                 <span>{t.home.heroTitleHighlight}</span>
               </h1>
+              <div className="hero-subtitle">{t.home.heroSubtitle}</div>
               <p>{t.home.heroDesc}</p>
               <div className="actions">
-                <a className="primary" href="#parikrama">
+                <a className="primary" href="#route">
                   {t.home.exploreBtn} <ArrowRight size={18} />
                 </a>
-                <a className="secondary" href="#places">
-                  {t.home.placesBtn}
-                </a>
+                <button type="button" className="secondary" onClick={openPlanner}>
+                  {t.home.planBtn}
+                </button>
               </div>
               <div className="stats">
                 <div>
-                  <strong>{t.home.stat1Number}</strong>
-                  <small>{t.home.stat1Label}</small>
+                  <strong>{t.home.statDistance}</strong>
+                  <small>{t.home.statDistanceLabel}</small>
                 </div>
                 <div>
-                  <strong>{t.home.stat2Number}</strong>
-                  <small>{t.home.stat2Label}</small>
+                  <strong>{t.home.statDuration}</strong>
+                  <small>{t.home.statDurationLabel}</small>
                 </div>
                 <div>
-                  <strong>{t.home.stat3Number}</strong>
-                  <small>{t.home.stat3Label}</small>
+                  <strong>{t.home.statStates}</strong>
+                  <small>{t.home.statStatesLabel}</small>
+                </div>
+                <div>
+                  <strong>{t.home.statSource}</strong>
+                  <small>{t.home.statSourceLabel}</small>
                 </div>
               </div>
             </div>
@@ -601,65 +637,580 @@ function HomePage({ openPlanner }: { openPlanner: () => void }) {
           </div>
         </section>
 
+        {/* Parikrama Section: "Why Undertake Narmada Parikrama?" Spiritual & Informational Guide */}
+        <div id="parikrama" className="nav-anchor" />
         <section id="about" className="section">
-          <div className="container two">
-            <div>
-              <div className="eyebrow">
-                <Sparkles size={16} /> {t.home.aboutEyebrow}
-              </div>
-              <h2>{t.home.aboutTitle}</h2>
-            </div>
-            <p className="lead">{t.home.aboutLead}</p>
-          </div>
-        </section>
-
-        <section id="parikrama" className="section dark">
           <div className="container">
-            <div className="center">
-              <div className="eyebrow">{t.home.parikramaEyebrow}</div>
-              <h2>{t.home.parikramaTitle}</h2>
-              <p>{t.home.parikramaDesc}</p>
+            <div className="section-intro">
+              <div className="eyebrow">
+                <Sparkles size={16} /> {t.home.parikramaWhy.eyebrow}
+              </div>
+              <h2>{t.home.parikramaWhy.title}</h2>
+              <div className="parikrama-invocation-badge">
+                <span className="om-icon">🕉️</span>
+                <span>{t.home.parikramaWhy.invocation}</span>
+              </div>
+              <p className="lead">{t.home.parikramaWhy.introP1}</p>
+              <p className="lead-sub">{t.home.parikramaWhy.introP2}</p>
             </div>
-            <div className="cards">
-              <article>
-                <span>01</span>
-                <h3>{t.home.step1Title}</h3>
-                <p>{t.home.step1Desc}</p>
+
+            {/* Foundations: Mother Narmada & Purana Mahatmya */}
+            <div className="parikrama-foundations-grid">
+              <article className="foundation-card foundation-mother">
+                <h3>{t.home.parikramaWhy.maaTitle}</h3>
+                <p>{t.home.parikramaWhy.maaP1}</p>
+                <div className="sacred-callout-box">
+                  <strong>{t.home.parikramaWhy.maaQuote}</strong>
+                </div>
+                <p>{t.home.parikramaWhy.maaP2}</p>
               </article>
-              <article>
-                <span>02</span>
-                <h3>{t.home.step2Title}</h3>
-                <p>{t.home.step2Desc}</p>
+
+              <article className="foundation-card foundation-purana">
+                <h3>{t.home.parikramaWhy.puranaTitle}</h3>
+                <p>{t.home.parikramaWhy.puranaP1}</p>
+                <p>{t.home.parikramaWhy.puranaP2}</p>
+                <div className="sacred-callout-box">
+                  <strong>{t.home.parikramaWhy.puranaMessage}</strong>
+                </div>
               </article>
-              <article>
-                <span>03</span>
-                <h3>{t.home.step3Title}</h3>
-                <p>{t.home.step3Desc}</p>
-              </article>
+            </div>
+
+            {/* 10 Spiritual Objectives */}
+            <div className="parikrama-objectives-wrap">
+              <div className="section-subheading">
+                <h3>{t.home.parikramaWhy.objectivesHeading}</h3>
+              </div>
+
+              <div className="parikrama-objectives-grid">
+                {t.home.parikramaWhy.objectives.map((obj) => (
+                  <article key={obj.num} className="objective-card">
+                    <div className="objective-card-header">
+                      <span className="objective-badge">{obj.num}</span>
+                      <h4>{obj.num}. {obj.title}</h4>
+                    </div>
+
+                    <div className="objective-content">
+                      {obj.paragraphs.map((p, pIdx) => (
+                        <p key={pIdx}>{p}</p>
+                      ))}
+
+                      {obj.quote && (
+                        <blockquote className="spiritual-quote-box">
+                          {obj.quote}
+                        </blockquote>
+                      )}
+
+                      {obj.flow && obj.flow.length > 0 && (
+                        <div className="spiritual-flow-wrap">
+                          {obj.flow.map((item, fIdx) => (
+                            <React.Fragment key={fIdx}>
+                              <span className="flow-step-pill">{item}</span>
+                              {fIdx < obj.flow!.length - 1 && (
+                                <span className="flow-arrow" aria-hidden="true">→</span>
+                              )}
+                            </React.Fragment>
+                          ))}
+                        </div>
+                      )}
+
+                      {obj.postFlow && <p className="spiritual-post-flow">{obj.postFlow}</p>}
+
+                      {obj.bullets && obj.bullets.length > 0 && (
+                        <ul className="spiritual-bullets-list">
+                          {obj.bullets.map((bullet, bIdx) => (
+                            <li key={bIdx}>
+                              <span className="spiritual-bullet-icon">🪷</span>
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {obj.questions && obj.questions.length > 0 && (
+                        <div className="spiritual-questions-box">
+                          {obj.questionsIntro && (
+                            <div className="questions-title">{obj.questionsIntro}</div>
+                          )}
+                          <ul className="spiritual-questions-list">
+                            {obj.questions.map((q, qIdx) => (
+                              <li key={qIdx}>
+                                <span className="q-badge">?</span>
+                                <span>{q}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {obj.takeaway && (
+                        <div className="spiritual-takeaway-box">
+                          <span>✨</span>
+                          <p>{obj.takeaway}</p>
+                        </div>
+                      )}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            {/* Essence Card */}
+            <div className="parikrama-essence-card">
+              <div className="essence-header">
+                <h3>{t.home.parikramaWhy.essenceTitle}</h3>
+                <p className="essence-lead">{t.home.parikramaWhy.essenceLead}</p>
+              </div>
+
+              <div className="essence-stream-box">
+                <span className="essence-stream-text">{t.home.parikramaWhy.essenceStream}</span>
+              </div>
+
+              <div className="essence-closing-box">
+                <p><strong>{t.home.parikramaWhy.essenceClosing}</strong></p>
+              </div>
+            </div>
+
+            {/* 12-Row Spiritual Bhava Table */}
+            <div className="bhava-table-card">
+              <div className="bhava-table-header">
+                <h3>{t.home.parikramaWhy.tableTitle}</h3>
+              </div>
+
+              <div className="bhava-table-container">
+                <table className="bhava-table">
+                  <thead>
+                    <tr>
+                      <th scope="col" className="bhava-col-sadhana">
+                        {t.home.parikramaWhy.tableHeaderSadhana}
+                      </th>
+                      <th scope="col" className="bhava-col-bhava">
+                        {t.home.parikramaWhy.tableHeaderBhava}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {t.home.parikramaWhy.tableRows.map((row, rIdx) => (
+                      <tr key={rIdx}>
+                        <td className="bhava-cell-sadhana">
+                          <span className="sadhana-bullet" aria-hidden="true">•</span>
+                          <strong>{row.sadhana}</strong>
+                        </td>
+                        <td className="bhava-cell-bhava">{row.bhava}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Devotional Climax: Narmade Har */}
+            <div className="narmade-har-climax-card">
+              <div className="climax-header">
+                <h3>{t.home.parikramaWhy.narmadeHarTitle}</h3>
+                <p className="climax-p1">{t.home.parikramaWhy.narmadeHarP1}</p>
+              </div>
+
+              <div className="climax-chants-grid">
+                {t.home.parikramaWhy.narmadeHarChants.map((chant, cIdx) => (
+                  <div key={cIdx} className="chant-bubble">
+                    <span className="chant-om">🕉️</span>
+                    <span className="chant-text">{chant}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="climax-p2-box">
+                <p>{t.home.parikramaWhy.narmadeHarP2}</p>
+              </div>
             </div>
           </div>
         </section>
 
+        {/* Section 13: Traditional Walking vs 18-Day Vehicle Trip Comparison */}
+        <section id="compare" className="section dark">
+          <div className="container">
+            <div className="section-intro">
+              <div className="eyebrow">
+                <Info size={16} /> {t.home.compareEyebrow}
+              </div>
+              <h2>{t.home.compareTitle}</h2>
+              <p>{t.home.compareSubtitle}</p>
+            </div>
+
+            <div className="compare-table-container">
+              <table className="compare-table">
+                <thead>
+                  <tr>
+                    <th>{t.home.compareHeaders.aspect}</th>
+                    <th>{t.home.compareHeaders.walking}</th>
+                    <th>{t.home.compareHeaders.vehicle}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {t.home.comparisonRows.map((row, idx) => (
+                    <tr key={idx}>
+                      <td>
+                        <strong>{row.aspect}</strong>
+                      </td>
+                      <td className="compare-col-walk">{row.walking}</td>
+                      <td className="compare-col-veh">{row.vehicle}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="compare-note-box">
+              <strong>{t.home.compareNote}</strong>
+            </div>
+          </div>
+        </section>
+
+        {/* Places Page / Directory */}
         <section id="places" className="section">
-          <div className="container center">
-            <div className="eyebrow">{t.home.placesEyebrow}</div>
-            <h2>{t.home.placesTitle}</h2>
-            <p>{t.home.placesDesc}</p>
-          </div>
-        </section>
+          <div className="container">
+            <div className="section-intro">
+              <div className="eyebrow">
+                <MapPin size={16} /> {t.home.placesEyebrow}
+              </div>
+              <h2>{t.home.placesTitle}</h2>
+              <p>{t.home.placesSubtitle}</p>
+            </div>
 
-        <section id="gallery" className="section gallery">
-          <div className="container center">
-            <div className="eyebrow">{t.home.galleryEyebrow}</div>
-            <h2>{t.home.galleryTitle}</h2>
-            <div className="gallery-grid">
-              <div />
-              <div />
-              <div />
+            <div className="places-filter-bar">
+              <button
+                type="button"
+                className={`places-filter-btn ${placesFilter === 'all' ? 'active' : ''}`}
+                onClick={() => setPlacesFilter('all')}
+              >
+                {t.home.placesFilterAll}
+              </button>
+              <button
+                type="button"
+                className={`places-filter-btn ${placesFilter === 'mp' ? 'active' : ''}`}
+                onClick={() => setPlacesFilter('mp')}
+              >
+                {t.home.placesFilterMP}
+              </button>
+              <button
+                type="button"
+                className={`places-filter-btn ${placesFilter === 'mh' ? 'active' : ''}`}
+                onClick={() => setPlacesFilter('mh')}
+              >
+                {t.home.placesFilterMH}
+              </button>
+              <button
+                type="button"
+                className={`places-filter-btn ${placesFilter === 'gj' ? 'active' : ''}`}
+                onClick={() => setPlacesFilter('gj')}
+              >
+                {t.home.placesFilterGJ}
+              </button>
+            </div>
+
+            <div className="places-grid">
+              {filteredPlaces.map((place) => (
+                <article className="place-card" key={place.id}>
+                  <div className="place-card-header">
+                    <div>
+                      <h3>{place.name}</h3>
+                      <span className="place-badge">{place.badge}</span>
+                    </div>
+                    <span className="place-state">{place.state}</span>
+                  </div>
+
+                  <div className="place-info-block">
+                    <span className="place-info-label">{t.home.placeLabels.significance}</span>
+                    <p className="place-info-text">{place.significance}</p>
+                  </div>
+
+                  <div className="place-info-block">
+                    <span className="place-info-label">{t.home.placeLabels.experience}</span>
+                    <p className="place-info-text">{place.experience}</p>
+                  </div>
+
+                  <div className="place-info-block">
+                    <span className="place-info-label">{t.home.placeLabels.duration}</span>
+                    <p className="place-info-text">{place.duration}</p>
+                  </div>
+
+                  <div className="place-info-block">
+                    <span className="place-info-label">{t.home.placeLabels.stay}</span>
+                    <p className="place-info-text">{place.stay}</p>
+                  </div>
+
+                  <div className="place-info-block">
+                    <span className="place-info-label">{t.home.placeLabels.food}</span>
+                    <p className="place-info-text">{place.food}</p>
+                  </div>
+
+                  <div className="place-notes-box">
+                    <strong>{t.home.placeLabels.notes}:</strong> {place.notes}
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
 
+        {/* Complete Route Section */}
+        <section id="route" className="section dark">
+          <div className="container">
+            <div className="section-intro">
+              <div className="eyebrow">
+                <Compass size={16} /> {t.home.routeEyebrow}
+              </div>
+              <h2>{t.home.routeTitle}</h2>
+              <p>{t.home.routeSubtitle}</p>
+            </div>
+
+            <div className="route-disclaimer">
+              <Info size={18} style={{ display: 'inline', marginRight: 8, verticalAlign: 'text-bottom' }} />
+              {t.home.routeDisclaimer}
+            </div>
+
+            <div className="route-timeline-grid">
+              {t.home.routeStops.map((stop) => (
+                <article className="route-card" key={stop.step}>
+                  <div className="route-card-top">
+                    <span className="route-step-num">{stop.step}</span>
+                    <span className="route-state-badge">{stop.state}</span>
+                  </div>
+                  <h3>{stop.title}</h3>
+                  <p>{stop.desc}</p>
+                  <div className="route-highlight-tag">
+                    <Sparkles size={13} /> {stop.highlight}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Travel Guide Consolidated Section: Stay, Food, Challenges, Shoolpani, Seva, Checklist, Safety, FAQ */}
+        <div id="travel-guide" className="nav-anchor" />
+        <section id="stay" className="section">
+          <div className="container">
+            <div className="section-intro">
+              <div className="eyebrow">
+                <Hotel size={16} /> {t.home.stayEyebrow}
+              </div>
+              <h2>{t.home.stayTitle}</h2>
+              <p>{t.home.staySubtitle}</p>
+            </div>
+
+            <div className="stay-grid">
+              {t.home.stayCategories.map((cat, idx) => (
+                <article className="stay-card" key={idx}>
+                  <span className="stay-card-tag">{cat.tag}</span>
+                  <h3>{cat.title}</h3>
+                  <p>{cat.desc}</p>
+                  <div className="stay-card-tip">
+                    <small>💡 {cat.tip}</small>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Section 8: Food Section */}
+        <section id="food" className="section dark">
+          <div className="container">
+            <div className="section-intro">
+              <div className="eyebrow">
+                <Utensils size={16} /> {t.home.foodEyebrow}
+              </div>
+              <h2>{t.home.foodTitle}</h2>
+              <p>{t.home.foodSubtitle}</p>
+            </div>
+
+            <div className="food-grid">
+              {t.home.foodItems.map((item, idx) => (
+                <article className="food-card" key={idx}>
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Section 9: Challenges */}
+        <section id="challenges" className="section">
+          <div className="container">
+            <div className="section-intro">
+              <div className="eyebrow">
+                <AlertTriangle size={16} /> {t.home.challengesEyebrow}
+              </div>
+              <h2>{t.home.challengesTitle}</h2>
+              <p>{t.home.challengesSubtitle}</p>
+            </div>
+
+            <div className="challenges-grid">
+              {t.home.challenges.map((c, idx) => (
+                <article className="challenge-card" key={idx}>
+                  <div className="challenge-icon">{getChallengeIcon(c.iconName)}</div>
+                  <h3>{c.title}</h3>
+                  <p>{c.desc}</p>
+                  {c.realNote && <div className="challenge-real-note">📌 {c.realNote}</div>}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Section 10: Shoolpani / Difficult Forest Section */}
+        <section id="shoolpani" className="section" style={{ paddingTop: 0 }}>
+          <div className="container">
+            <div className="shoolpani-box">
+              <div className="shoolpani-header">
+                <h2>{t.home.shoolpaniTitle}</h2>
+                <span className="shoolpani-badge">{t.home.shoolpaniBadge}</span>
+              </div>
+              <p>{t.home.shoolpaniP1}</p>
+              <p>{t.home.shoolpaniP2}</p>
+
+              <h4 style={{ margin: '20px 0 10px', fontSize: 16 }}>{t.home.shoolpaniAdviceTitle}:</h4>
+              <ul className="shoolpani-rules-list">
+                {t.home.shoolpaniAdviceList.map((rule, idx) => (
+                  <li className="shoolpani-rule-item" key={idx}>
+                    <ShieldCheck size={18} />
+                    <span>{rule}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="warning-box">
+                <AlertTriangle size={17} style={{ display: 'inline', marginRight: 8, verticalAlign: 'text-bottom' }} />
+                {t.home.shoolpaniWarning}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 11: People, Ashrams and Seva */}
+        <section id="experience" className="section dark">
+          <div className="container">
+            <div className="section-intro">
+              <div className="eyebrow">
+                <Users size={16} /> {t.home.peopleEyebrow}
+              </div>
+              <h2>{t.home.peopleTitle}</h2>
+              <p>{t.home.peopleSubtitle}</p>
+            </div>
+
+            <div className="route-disclaimer">
+              <Info size={17} style={{ display: 'inline', marginRight: 8, verticalAlign: 'text-bottom' }} />
+              {t.home.peopleDisclaimer}
+            </div>
+
+            <div className="people-grid">
+              {t.home.peopleList.map((p, idx) => (
+                <article className="people-card" key={idx}>
+                  <h3>
+                    <HeartHandshake size={20} color="#C9953D" /> {p.title}
+                  </h3>
+                  <p>{p.desc}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Section 14: What to Carry */}
+        <section id="checklist" className="section">
+          <div className="container">
+            <div className="section-intro">
+              <div className="eyebrow">
+                <CheckCircle2 size={16} /> {t.home.packingEyebrow}
+              </div>
+              <h2>{t.home.packingTitle}</h2>
+              <p>{t.home.packingSubtitle}</p>
+            </div>
+
+            <div className="packing-grid">
+              {t.home.packingGroups.map((group, idx) => (
+                <article className="packing-card" key={idx}>
+                  <h3>{group.category}</h3>
+                  <ul className="packing-list">
+                    {group.items.map((item, itemIdx) => (
+                      <li className="packing-item" key={itemIdx}>
+                        <CheckCircle size={16} />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+
+            <div className="packing-walking-note">
+              <strong>🎒 {t.home.packingWalkingNote}</strong>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 15: Safety Guide */}
+        <section id="safety" className="section dark">
+          <div className="container">
+            <div className="section-intro">
+              <div className="eyebrow">
+                <ShieldCheck size={16} /> {t.home.safetyEyebrow}
+              </div>
+              <h2>{t.home.safetyTitle}</h2>
+              <p>{t.home.safetySubtitle}</p>
+            </div>
+
+            <div className="safety-grid">
+              {t.home.safetyRules.map((rule, idx) => (
+                <article className="safety-card" key={idx}>
+                  <div className="safety-num">0{idx + 1}</div>
+                  <div className="safety-content">
+                    <h3>{rule.title}</h3>
+                    <p>{rule.desc}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Section 16: FAQ */}
+        <section id="faq" className="section">
+          <div className="container">
+            <div className="section-intro">
+              <div className="eyebrow">
+                <HelpCircle size={16} /> {t.home.faqEyebrow}
+              </div>
+              <h2>{t.home.faqTitle}</h2>
+              <p>{t.home.faqSubtitle}</p>
+            </div>
+
+            <div className="faq-list">
+              {t.home.faqs.map((faq, idx) => (
+                <div className="faq-item" key={idx}>
+                  <button
+                    type="button"
+                    className="faq-question"
+                    onClick={() => setOpenFaqIdx(openFaqIdx === idx ? null : idx)}
+                    aria-expanded={openFaqIdx === idx}
+                  >
+                    <span>{faq.q}</span>
+                    <ChevronDown size={18} className={`faq-chevron ${openFaqIdx === idx ? 'open' : ''}`} />
+                  </button>
+                  {openFaqIdx === idx && (
+                    <div className="faq-answer">
+                      <p>{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact CTA */}
         <section id="contact" className="cta">
           <div className="container cta-inner">
             <div>
@@ -675,6 +1226,7 @@ function HomePage({ openPlanner }: { openPlanner: () => void }) {
         </section>
       </main>
 
+      {/* Footer */}
       <footer>
         <div className="container footer-grid">
           <div>
@@ -691,16 +1243,18 @@ function HomePage({ openPlanner }: { openPlanner: () => void }) {
           <div>
             <h4>{t.home.footerExplore}</h4>
             <a href="#home">{t.nav.home}</a>
-            <a href="#about">{t.nav.about}</a>
             <a href="#parikrama">{t.nav.parikrama}</a>
             <a href="#places">{t.nav.places}</a>
-            <a href="#gallery">{t.nav.gallery}</a>
+            <a href="#route">{t.nav.route}</a>
+            <a href="#travel-guide">{t.nav.travelGuide}</a>
             <a href="/trips">{t.nav.trips}</a>
           </div>
           <div>
             <h4>{t.home.footerJourney}</h4>
-            <a href="#parikrama">{t.home.footerRoutePlanning}</a>
+            <a href="#route">{t.home.footerRoutePlanning}</a>
             <a href="#places">{t.home.footerSacredPlaces}</a>
+            <a href="#safety">{t.home.safetyTitle}</a>
+            <a href="#checklist">{t.home.packingTitle}</a>
             <a href="/trips">{t.home.footerTrips}</a>
           </div>
         </div>
@@ -712,6 +1266,11 @@ function HomePage({ openPlanner }: { openPlanner: () => void }) {
 
 function TripsPage({ openPlanner }: { openPlanner?: () => void }) {
   const { t } = useLanguage();
+  const [selectedRoute, setSelectedRoute] = useState<'route1' | 'route2'>('route1');
+
+  const currentItinerary = selectedRoute === 'route1'
+    ? (t.trips.itineraryRoute1 || t.trips.itinerary)
+    : (t.trips.itineraryRoute2 || t.trips.itinerary);
 
   const tripList = [
     {
@@ -826,6 +1385,7 @@ function TripsPage({ openPlanner }: { openPlanner?: () => void }) {
             <p className="note">{t.trips.priceNote}</p>
           </section>
 
+          {/* Section 12: 18-Day Vehicle Yatra Itinerary */}
           <section className="section itinerary-section">
             <div className="section-heading centered">
               <span className="kicker">{t.trips.itineraryEyebrow}</span>
@@ -835,9 +1395,36 @@ function TripsPage({ openPlanner }: { openPlanner?: () => void }) {
               </h2>
               <p>{t.trips.itineraryDesc}</p>
             </div>
+
+            <div className="route-selector-bar">
+              <button
+                type="button"
+                className={`route-selector-btn ${selectedRoute === 'route1' ? 'active' : ''}`}
+                onClick={() => setSelectedRoute('route1')}
+                aria-pressed={selectedRoute === 'route1'}
+              >
+                {t.trips.route1Label || 'Route 1'}
+              </button>
+              <button
+                type="button"
+                className={`route-selector-btn ${selectedRoute === 'route2' ? 'active' : ''}`}
+                onClick={() => setSelectedRoute('route2')}
+                aria-pressed={selectedRoute === 'route2'}
+              >
+                {t.trips.route2Label || 'Route 2'}
+              </button>
+            </div>
+
+            <div className="container" style={{ marginBottom: 30 }}>
+              <div className="route-disclaimer">
+                <AlertTriangle size={18} style={{ display: 'inline', marginRight: 8, verticalAlign: 'text-bottom' }} />
+                {t.trips.itineraryDisclaimer}
+              </div>
+            </div>
+
             <div className="timeline">
-              {t.trips.itinerary.map((item) => (
-                <div className="timeline-item" key={item.day}>
+              {currentItinerary.map((item) => (
+                <div className="timeline-item" key={`${selectedRoute}-${item.day}`}>
                   <div className="timeline-dot" />
                   <div className="timeline-day">{item.day}</div>
                   <div className="timeline-content">
@@ -886,9 +1473,7 @@ function TripsPage({ openPlanner }: { openPlanner?: () => void }) {
           </section>
         </main>
         <footer>
-          <div className="footer-brand">
-            {t.trips.footerBrandText}
-          </div>
+          <div className="footer-brand">{t.trips.footerBrandText}</div>
           <p>{t.trips.footerTagline}</p>
           <ContactDetails />
           <small>{t.trips.footerRights}</small>
