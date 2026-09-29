@@ -830,7 +830,7 @@ section[id] {
 
 /* Footer */
 footer {
-  padding: 65px 0 25px;
+  padding: 65px 0 36px;
   background: var(--surface);
   border-top: 1px solid var(--border);
   color: var(--text-secondary);
@@ -882,6 +882,48 @@ footer {
   border-top: 1px solid var(--border);
   color: var(--text-muted);
   font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-copyright {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.footer-powered-by {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.powered-by-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+.powered-by-logo {
+  width: 155px;
+  height: auto;
+  aspect-ratio: 1024 / 341;
+  object-fit: contain;
+  display: block;
+  mix-blend-mode: multiply;
+}
+
+.powered-by-subtext {
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+  line-height: 1;
 }
 
 /* Contact Details */
@@ -2500,6 +2542,15 @@ footer {
   .stats small {
     font-size: 13px;
     line-height: 1.45;
+  }
+  .bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+  .powered-by-logo {
+    width: 130px;
   }
 }
 

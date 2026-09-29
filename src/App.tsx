@@ -681,7 +681,22 @@ function SiteFooter() {
           <a href="/trips/">{t.home.footerTrips}</a>
         </div>
       </div>
-      <div className="container bottom">{t.home.footerRights}</div>
+      <div className="container bottom">
+        <p className="footer-copyright">{t.home.footerRights}</p>
+        <div className="footer-powered-by">
+          <span className="powered-by-label">Powered by</span>
+          <img
+            src="/assets/logicbase-logo.png"
+            alt="LogicBase Software Private Limited"
+            className="powered-by-logo"
+            width="155"
+            height="52"
+            loading="lazy"
+            decoding="async"
+          />
+          <span className="powered-by-subtext">Software Private Limited</span>
+        </div>
+      </div>
     </footer>
   );
 }
