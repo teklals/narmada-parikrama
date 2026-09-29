@@ -10,6 +10,7 @@ export const hi: Translations = {
     trips: 'ट्रिप्स',
     planYatra: 'यात्रा योजना बनाएं',
     selectLanguage: 'भाषा चुनें',
+    byCar: 'कार से परिक्रमा',
     about: 'परिक्रमा परिचय',
     compare: 'पैदल vs वाहन',
     stayFood: 'रुकना व भोजन',
@@ -1014,6 +1015,7 @@ export const hi: Translations = {
     faqTitle: 'अक्सर पूछे जाने वाले प्रश्न (FAQ)',
     faqSubtitle:
       'नर्मदा परिक्रमा के मार्ग, नियम, भोजन और व्यवस्था से जुड़े मुख्य प्रश्नों के सरल उत्तर।',
+    faqViewAll: 'सभी प्रश्नोत्तरी देखें',
     faqs: [
       {
         q: 'नर्मदा परिक्रमा क्या है?',

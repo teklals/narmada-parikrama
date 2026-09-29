@@ -10,6 +10,7 @@ export const gu: Translations = {
     trips: '18-દિવસીય યાત્રા',
     planYatra: 'યાત્રાનું આયોજન કરો',
     selectLanguage: 'ભાષા પસંદ કરો',
+    byCar: 'કાર દ્વારા પરિક્રમા',
     about: 'પરિક્રમા પરિચય',
     compare: 'પગપાળા vs વાહન',
     stayFood: 'રોકાણ અને ભોજન',
@@ -1014,6 +1015,7 @@ export const gu: Translations = {
     faqTitle: 'વારંવાર પૂછાતા પ્રશ્નો (FAQ)',
     faqSubtitle:
       'નર્મદા પરિક્રમાના માર્ગ, નિયમો, ભોજન અને આયોજન સંબંધિત મુખ્ય પ્રશ્નોના સરળ જવાબો.',
+    faqViewAll: 'બધા પ્રશ્નોત્તરી જુઓ',
     faqs: [
       {
         q: 'નર્મદા પરિક્રમા શું છે?',

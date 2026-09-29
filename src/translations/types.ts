@@ -143,6 +143,7 @@ export interface Translations {
     trips: string;
     planYatra: string;
     selectLanguage: string;
+    byCar?: string;
     about?: string;
     compare?: string;
     stayFood?: string;
@@ -252,6 +253,7 @@ export interface Translations {
     faqEyebrow: string;
     faqTitle: string;
     faqSubtitle: string;
+    faqViewAll?: string;
     faqs: FaqItem[];
     ctaEyebrow: string;
     ctaTitle: string;

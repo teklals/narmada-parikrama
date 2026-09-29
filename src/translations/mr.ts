@@ -10,6 +10,7 @@ export const mr: Translations = {
     trips: '18-दिवसीय यात्रा',
     planYatra: 'यात्रा नियोजन करा',
     selectLanguage: 'भाषा निवडा',
+    byCar: 'कारने परिक्रमा',
     about: 'परिक्रमा परिचय',
     compare: 'पायदळ vs वाहन',
     stayFood: 'मुक्काम व भोजन',
@@ -1014,6 +1015,7 @@ export const mr: Translations = {
     faqTitle: 'नेहमी विचारले जाणारे प्रश्न (FAQ)',
     faqSubtitle:
       'नर्मदा परिक्रमेचे मार्ग, नियम, भोजन आणि नियोजनाशी संबंधित महत्त्वाच्या प्रश्नांची उत्तरे.',
+    faqViewAll: 'सर्व प्रश्नोत्तरे पहा',
     faqs: [
       {
         q: 'नर्मदा परिक्रमा म्हणजे काय?',

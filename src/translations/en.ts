@@ -10,6 +10,7 @@ export const en: Translations = {
     trips: 'Trips',
     planYatra: 'Plan Your Yatra',
     selectLanguage: 'Select Language',
+    byCar: 'By Car',
     about: 'About Parikrama',
     compare: 'Walking vs Vehicle',
     stayFood: 'Stay & Food',
@@ -1014,6 +1015,7 @@ export const en: Translations = {
     faqTitle: 'Frequently Asked Questions',
     faqSubtitle:
       'Answers to common practical questions about Narmada Parikrama routes, stays, and travel planning.',
+    faqViewAll: 'View All FAQs',
     faqs: [
       {
         q: 'What is Narmada Parikrama?',
