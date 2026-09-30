@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const siteUrl = (process.env.SITE_URL || 'https://narmadaparikrama.co.in').replace(/\/$/, '');
+const siteUrl = (process.env.SITE_URL || 'https://narmadaparikrama.logicbase.co.in').replace(/\/$/, '');
 const publicDir = path.resolve('public');
 
 const pages = [
