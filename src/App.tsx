@@ -27,6 +27,104 @@ const TripsPage = lazy(() => import('./pages/TripsPage').then((m) => ({ default:
 const CONTACT_PHONE_1 = '+91-9958503108';
 const CONTACT_PHONE_2 = '+91-9315852737';
 const CONTACT_EMAIL = 'teklal.saw@gmail.com';
+const FACEBOOK_URL = 'https://www.facebook.com/NarmadaParikramaIndia/';
+const INSTAGRAM_URL = 'https://www.instagram.com/narmadaparikramaindia';
+const LINKEDIN_URL = 'https://www.linkedin.com/company/narmadaparikrama/';
+const YOUTUBE_URL = 'https://www.youtube.com/@narmadaparikramaindia';
+const WHATSAPP_URL =
+  'https://wa.me/919315852737?text=Namaste%20Narmada%20Parikrama%20team%2C%20I%20would%20like%20to%20know%20more%20about%20the%20Narmada%20Parikrama%20Yatra.';
+
+function FacebookIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+    </svg>
+  );
+}
+
+function InstagramIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  );
+}
+
+function LinkedInIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451c.979 0 1.778-.773 1.778-1.729V1.73C24 .774 23.205 0 22.222 0h.003z" />
+    </svg>
+  );
+}
+
+function YouTubeIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+    </svg>
+  );
+}
+
+function WhatsAppIcon({ size = 30 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.275-.1-.476-.15-.676.15-.201.3-.777.979-.953 1.18-.175.201-.351.226-.652.075-.301-.15-1.272-.469-2.423-1.496-.895-.798-1.5-1.783-1.675-2.084-.176-.301-.019-.464.132-.614.136-.135.301-.351.451-.527.151-.176.201-.301.302-.502.1-.201.05-.376-.025-.526-.075-.151-.677-1.631-.928-2.233-.244-.587-.492-.507-.676-.516-.175-.01-.376-.01-.577-.01-.201 0-.527.075-.802.376-.276.301-1.053 1.029-1.053 2.509 0 1.48 1.079 2.909 1.229 3.11.151.201 2.124 3.243 5.145 4.549.719.311 1.28.497 1.718.636.722.23 1.378.198 1.898.12.579-.088 1.78-.728 2.03-1.431.251-.703.251-1.305.176-1.431-.076-.126-.276-.201-.577-.351z" />
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.161 1.594 5.97L.055 23.477l5.666-1.486A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.84c-1.782 0-3.528-.474-5.06-1.372l-.363-.214-3.364.882.898-3.279-.236-.376A9.845 9.845 0 0 1 2.16 12c0-5.426 4.414-9.84 9.84-9.84 5.426 0 9.84 4.414 9.84 9.84 0 5.426-4.414 9.84-9.84 9.84z" />
+    </svg>
+  );
+}
+
+function FloatingWhatsApp() {
+  return (
+    <a
+      href={WHATSAPP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="floating-whatsapp-btn"
+      aria-label="Contact Narmada Parikrama on WhatsApp"
+      title="Contact Narmada Parikrama on WhatsApp"
+    >
+      <WhatsAppIcon size={30} />
+    </a>
+  );
+}
 
 function ContactDetails() {
   return (
@@ -218,7 +316,14 @@ function Header({ currentRoute, openPlanner, openMenu, closeMenu, menuOpen }: He
     <header className="header">
       <div className="container nav-wrap">
         <a className="brand" href="/" aria-label="Narmada Parikrama Home">
-          <span className="brand-mark">ॐ</span>
+          <img
+            src="/assets/narmada-parikrama-logo.png"
+            alt="Narmada Parikrama"
+            className="brand-logo"
+            width={38}
+            height={38}
+            loading="eager"
+          />
           <span>
             Narmada<br />
             <b>Parikrama</b>
@@ -247,6 +352,48 @@ function Header({ currentRoute, openPlanner, openMenu, closeMenu, menuOpen }: He
         </nav>
 
         <div className="header-actions">
+          <div className="header-social-links" aria-label="Social media">
+            <a
+              href={FACEBOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="header-social-btn facebook"
+              aria-label="Facebook"
+              title="Facebook"
+            >
+              <FacebookIcon size={16} />
+            </a>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="header-social-btn instagram"
+              aria-label="Instagram"
+              title="Instagram"
+            >
+              <InstagramIcon size={16} />
+            </a>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="header-social-btn linkedin"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              <LinkedInIcon size={16} />
+            </a>
+            <a
+              href={YOUTUBE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="header-social-btn youtube"
+              aria-label="YouTube"
+              title="YouTube"
+            >
+              <YouTubeIcon size={16} />
+            </a>
+          </div>
           <LanguageDropdown />
           <button type="button" className="demo" onClick={openPlanner}>
             {t.nav.planYatra}
@@ -310,7 +457,14 @@ function MobileDrawer({ isOpen, onClose, currentRoute, openPlanner }: MobileDraw
       >
         <div className="mobile-drawer-header">
           <a className="brand" href="/" onClick={onClose}>
-            <span className="brand-mark">ॐ</span>
+            <img
+              src="/assets/narmada-parikrama-logo.png"
+              alt="Narmada Parikrama"
+              className="brand-logo"
+              width={38}
+              height={38}
+              loading="eager"
+            />
             <span>
               Narmada<br />
               <b>Parikrama</b>
@@ -402,6 +556,48 @@ function MobileDrawer({ isOpen, onClose, currentRoute, openPlanner }: MobileDraw
         </div>
 
         <div className="mobile-drawer-footer">
+          <div className="mobile-drawer-social">
+            <a
+              href={FACEBOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mobile-social-link"
+              aria-label="Facebook"
+            >
+              <FacebookIcon size={17} />
+              <span>Facebook</span>
+            </a>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mobile-social-link"
+              aria-label="Instagram"
+            >
+              <InstagramIcon size={17} />
+              <span>Instagram</span>
+            </a>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mobile-social-link"
+              aria-label="LinkedIn"
+            >
+              <LinkedInIcon size={17} />
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href={YOUTUBE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mobile-social-link"
+              aria-label="YouTube"
+            >
+              <YouTubeIcon size={17} />
+              <span>YouTube</span>
+            </a>
+          </div>
           <a href="tel:+919958503108">📞 {CONTACT_PHONE_1}</a>
           <a href="tel:+919315852737">📞 {CONTACT_PHONE_2}</a>
           <a href={`mailto:${CONTACT_EMAIL}`}>✉ {CONTACT_EMAIL}</a>
@@ -651,7 +847,14 @@ function SiteFooter() {
       <div className="container footer-grid">
         <div>
           <div className="brand footer-brand">
-            <span className="brand-mark">ॐ</span>
+            <img
+              src="/assets/narmada-parikrama-logo.png"
+              alt="Narmada Parikrama"
+              className="brand-logo"
+              width={42}
+              height={42}
+              loading="lazy"
+            />
             <span>
               Narmada<br />
               <b>Parikrama</b>
@@ -851,6 +1054,8 @@ function MainApp() {
       </Suspense>
 
       <SiteFooter />
+
+      <FloatingWhatsApp />
 
       <MobileDrawer
         isOpen={menuOpen}
