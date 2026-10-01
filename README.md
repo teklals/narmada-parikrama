@@ -41,20 +41,7 @@ npm run preview
 
 ## IMPORTANT: domain
 
-The project currently uses `https://narmadaparikrama.co.in` as the default SEO site URL in `robots.txt`, `sitemap.xml`, and JSON-LD.
-
-For automated SEO-file generation:
-
-```bash
-SITE_URL=https://your-real-domain.com npm run seo
-```
-
-On Windows PowerShell:
-
-```powershell
-$env:SITE_URL="https://your-real-domain.com"
-npm run seo
-```
+The project uses `https://narmadaparikrama.logicbase.co.in` as the canonical production SEO site URL in `robots.txt`, `sitemap.xml`, canonical tags, and JSON-LD.
 
 ## Google Search setup
 

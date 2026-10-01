@@ -86,8 +86,34 @@ function routeTrailingSlashPlugin(): Plugin {
   };
 }
 
+function seoBetaPlugin(): Plugin {
+  const isBetaBuild =
+    process.env.SITE_ENV === 'beta' ||
+    process.env.IS_BETA === 'true' ||
+    process.env.VITE_IS_BETA === 'true' ||
+    (Boolean(process.env.VERCEL_URL) && process.env.VERCEL_URL.includes('narmada-parikrama-beta'));
+
+  return {
+    name: 'vite-plugin-seo-beta',
+    transformIndexHtml(html) {
+      if (isBetaBuild) {
+        return html
+          .replace(
+            /<meta\s+name="robots"\s+content="[^"]*"\s*\/?>/gi,
+            '<meta name="robots" content="noindex, nofollow" />'
+          )
+          .replace(
+            /<meta\s+name="googlebot"\s+content="[^"]*"\s*\/?>/gi,
+            '<meta name="googlebot" content="noindex, nofollow" />'
+          );
+      }
+      return html;
+    },
+  };
+}
+
 export default defineConfig({
-  plugins: [react(), contactApiPlugin(), routeTrailingSlashPlugin()],
+  plugins: [react(), contactApiPlugin(), routeTrailingSlashPlugin(), seoBetaPlugin()],
   build: {
     rollupOptions: {
       input: {

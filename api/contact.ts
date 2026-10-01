@@ -63,7 +63,7 @@ export default async function handler(req: any, res: any) {
     trimmedMessage,
     '',
     `Date/Time: ${now} IST`,
-    'Website: https://narmadaparikrama.co.in',
+    'Website: https://narmadaparikrama.logicbase.co.in',
   ].join('\n');
 
   const escape = (str: string) =>
@@ -87,7 +87,7 @@ export default async function handler(req: any, res: any) {
       <hr style="border: 0; border-top: 1px solid #E5E7EB; margin: 20px 0;" />
       <p style="font-size: 12px; color: #6B7280;">
         <strong>Date/Time:</strong> ${now} IST<br />
-        <strong>Website:</strong> <a href="https://narmadaparikrama.co.in">https://narmadaparikrama.co.in</a>
+        <strong>Website:</strong> <a href="https://narmadaparikrama.logicbase.co.in">https://narmadaparikrama.logicbase.co.in</a>
       </p>
     </div>
   `;

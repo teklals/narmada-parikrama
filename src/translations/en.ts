@@ -24,7 +24,7 @@ export const en: Translations = {
     heroEyebrow: 'Sacred Pilgrimage · Amarkantak to Gujarat & Return',
     heroTitlePrefix: '',
     heroTitleHighlight: 'Narmada Parikrama',
-    heroSubtitle: 'Discover the sacred journey along Maa Narmada',
+    heroSubtitle: 'Informational & Travel Guide Platform for Maa Narmada Pilgrimage',
     heroDesc:
       'A revered spiritual circumambulation along the holy Narmada River across Madhya Pradesh, Maharashtra, and Gujarat. Explore practical route guidance, important shrines, stay and food insights, and travel planning for both traditional walking pilgrims and our proposed vehicle-assisted yatra.',
     exploreBtn: 'Explore Parikrama Route',
@@ -1086,7 +1086,7 @@ export const en: Translations = {
       'Contact our team for upcoming 2026 vehicle tour batch schedules, route advice, and pilgrimage travel assistance.',
     ctaBtn: 'Plan Your Yatra',
     footerTagline:
-      'A practical digital guide for the sacred Narmada Parikrama pilgrimage.',
+      'An informational and travel guide platform for the sacred Narmada Parikrama pilgrimage.',
     footerExplore: 'Explore',
     footerJourney: 'Journey Guides',
     footerRoutePlanning: 'Route Timeline',

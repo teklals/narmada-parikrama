@@ -161,52 +161,54 @@ const PAGE_META: Record<
   home: {
     title: 'Narmada Parikrama | Complete Holy Pilgrimage Guide & Route',
     description:
-      'Comprehensive guide to the holy Narmada Parikrama: route, sacred places, stay, food, travel advice, walking tips and vehicle yatra options across MP, MH & GJ.',
-    canonical: 'https://narmadaparikrama.co.in/',
+      'Informational and travel guide platform for the sacred Narmada Parikrama pilgrimage. Explore parikrama routes, temples, ghats, stay and food guidance, and vehicle yatra options.',
+    canonical: 'https://narmadaparikrama.logicbase.co.in/',
   },
   parikrama: {
-    title: 'Narmada Parikrama | Why Do Narmada Parikrama? Spiritual Guide',
+    title: 'Narmada Parikrama | Complete Pilgrimage Guide',
     description:
-      'Understand why Narmada Parikrama is undertaken, its spiritual significance, religious traditions, devotion, discipline, pilgrimage and connection with Maa Narmada.',
-    canonical: 'https://narmadaparikrama.co.in/narmada-parikrama/',
+      'Comprehensive guide to the sacred Narmada Parikrama pilgrimage: spiritual significance, religious traditions, pilgrim rules, devotion, and reverence for holy Maa Narmada.',
+    canonical: 'https://narmadaparikrama.logicbase.co.in/narmada-parikrama/',
   },
   route: {
-    title: 'Narmada Parikrama Route | 17 Key Stops & Complete Pilgrimage Path',
+    title: 'Narmada Parikrama Route | Amarkantak to Gujarat and Back',
     description:
-      'Explore the 17 key stops along the sacred Narmada Parikrama route from Amarkantak across Madhya Pradesh, Maharashtra, and Gujarat.',
-    canonical: 'https://narmadaparikrama.co.in/narmada-parikrama/route/',
+      'Detailed Narmada Parikrama route guide covering 17 key pilgrimage stops from Amarkantak across Madhya Pradesh, Maharashtra, and Gujarat with day-by-day path details.',
+    canonical: 'https://narmadaparikrama.logicbase.co.in/narmada-parikrama/route/',
   },
   places: {
-    title: 'Sacred Places on Narmada Parikrama | 20 Major Ghats & Temples',
+    title: 'Sacred Places on Narmada Parikrama | Temples & Ghats',
     description:
-      'Explore 20 sacred pilgrimage places, ghats, and temples along Narmada Parikrama across Madhya Pradesh, Maharashtra, and Gujarat with darshan information.',
-    canonical: 'https://narmadaparikrama.co.in/narmada-parikrama/places/',
+      'Discover 20 sacred pilgrimage places, temples, and holy ghats along Narmada Parikrama across Madhya Pradesh, Maharashtra, and Gujarat with darshan timings and tips.',
+    canonical: 'https://narmadaparikrama.logicbase.co.in/narmada-parikrama/places/',
   },
   byCar: {
-    title: 'Narmada Parikrama by Car | 18-Day Vehicle Route & Yatra Itinerary',
+    title: 'Narmada Parikrama by Car | 18-Day Vehicle Yatra Guide',
     description:
-      'Plan your Narmada Parikrama by car or vehicle with our proposed 18-day itinerary, day-by-day stops, route comparison, driving tips and sacred darshan points.',
-    canonical: 'https://narmadaparikrama.co.in/narmada-parikrama/by-car/',
+      'Complete guide for Narmada Parikrama by car: proposed 18-day vehicle yatra itinerary, road route comparison, driving tips, ghats, temples, and daily travel stops.',
+    canonical: 'https://narmadaparikrama.logicbase.co.in/narmada-parikrama/by-car/',
   },
   travelGuide: {
     title: 'Narmada Parikrama Travel Guide | Stay, Food, Safety & Packing',
     description:
-      'Essential practical guide for Narmada Parikrama: accommodation, ashrams, food, bhojanalayas, physical challenges, Shoolpani preparation, packing list and safety rules.',
-    canonical: 'https://narmadaparikrama.co.in/narmada-parikrama/travel-guide/',
+      'Practical travel guide for Narmada Parikrama: ashram stay options, bhojanalayas, food advice, packing checklist, Shoolpani preparation, and pilgrim safety tips.',
+    canonical: 'https://narmadaparikrama.logicbase.co.in/narmada-parikrama/travel-guide/',
   },
   faq: {
-    title: 'Narmada Parikrama FAQ | Routes, Stay, Food & Travel Questions',
+    title: 'Narmada Parikrama FAQ | Routes, Stay, Food & Travel',
     description:
-      'Frequently asked questions about Narmada Parikrama: distance, duration, walking vs vehicle yatra, ashram stays, food, Shoolpani, senior citizens and 2026 batches.',
-    canonical: 'https://narmadaparikrama.co.in/narmada-parikrama/faq/',
+      'Frequently asked questions about Narmada Parikrama: pilgrimage routes, walking vs vehicle yatra, stay options, food facilities, safety, Shoolpani, and travel advice.',
+    canonical: 'https://narmadaparikrama.logicbase.co.in/narmada-parikrama/faq/',
   },
   trips: {
-    title: '18-Day Narmada Parikrama Vehicle Yatra 2026 | Packages & Batches',
+    title: 'Narmada Parikrama Trips | Vehicle Yatra 2026',
     description:
-      'Join our 18-day organized Narmada Parikrama vehicle pilgrimage for October & November 2026. Fixed batches, transparent pricing (₹51,000), sacred darshan and guidance.',
-    canonical: 'https://narmadaparikrama.co.in/trips/',
+      'Travel guide and itinerary details for 18-day Narmada Parikrama vehicle yatra in 2026: October and November departure batches, sacred temple darshan, and route plan.',
+    canonical: 'https://narmadaparikrama.logicbase.co.in/trips/',
   },
 };
+
+const DEFAULT_SHARE_IMAGE = 'https://narmadaparikrama.logicbase.co.in/assets/narmada-parikrama-logo.png';
 
 function updateHeadMeta(route: AppRoute) {
   if (typeof document === 'undefined') return;
@@ -223,12 +225,30 @@ function updateHeadMeta(route: AppRoute) {
     el.setAttribute('content', content);
   };
 
+  const isBetaHost =
+    typeof window !== 'undefined' &&
+    (window.location.hostname === 'narmada-parikrama-beta.vercel.app' ||
+      window.location.hostname.endsWith('.vercel.app') ||
+      window.location.hostname.includes('beta'));
+
+  if (isBetaHost) {
+    setMeta('robots', 'name', 'noindex, nofollow');
+    setMeta('googlebot', 'name', 'noindex, nofollow');
+  } else {
+    setMeta('robots', 'name', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+    setMeta('googlebot', 'name', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+  }
+
   setMeta('description', 'name', meta.description);
   setMeta('og:title', 'property', meta.title);
   setMeta('og:description', 'property', meta.description);
   setMeta('og:url', 'property', meta.canonical);
+  setMeta('og:site_name', 'property', 'Narmada Parikrama');
+  setMeta('og:image', 'property', DEFAULT_SHARE_IMAGE);
+  setMeta('twitter:card', 'name', 'summary');
   setMeta('twitter:title', 'name', meta.title);
   setMeta('twitter:description', 'name', meta.description);
+  setMeta('twitter:image', 'name', DEFAULT_SHARE_IMAGE);
 
   let canonicalLink = document.querySelector('link[rel="canonical"]');
   if (!canonicalLink) {
