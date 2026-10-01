@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, Compass, MapPin, Car, Footprints, Sparkles, CalendarDays, Hotel, HelpCircle } from 'lucide-react';
-import { useLanguage } from '../translations';
+import { useLanguage, buildLocalizedPath } from '../translations';
 
 export type RelatedTargetKey = 'parikrama' | 'route' | 'places' | 'byCar' | 'trips' | 'travelGuide' | 'faq';
 
@@ -23,13 +23,13 @@ const RELATED_DATA: Record<RelatedTargetKey, RelatedCardData> = {
       gu: 'આધ્યાત્મિક સાધના',
     },
     title: {
-      en: 'Why Undertake Narmada Parikrama?',
-      hi: 'नर्मदा परिक्रमा क्यों करनी चाहिए?',
-      mr: 'नर्मदा परिक्रमा का करावी?',
-      gu: 'નર્મદા પરિક્રમા કેમ કરવી જોઈએ?',
+      en: 'Complete Narmada Parikrama Guide',
+      hi: 'संपूर्ण नर्मदा परिक्रमा मार्गदर्शिका',
+      mr: 'संपूर्ण नर्मदा परिक्रमा मार्गदर्शिका',
+      gu: 'સંપૂર્ણ નર્મદા પરિક્રમા માર્ગદર્શિકા',
     },
     desc: {
-      en: 'Explore the 10 spiritual objectives, scriptural significance from Skanda Purana, and devotion to Maa Narmada.',
+      en: 'Understand the spiritual significance, sacred traditions, and core principles of the holy Narmada Parikrama pilgrimage.',
       hi: '10 आध्यात्मिक उद्देश्य, स्कंद पुराण में वर्णित माहात्म्य एवं माँ नर्मदा के प्रति अटूट भक्ति व तपस्या समझें।',
       mr: '१० आध्यात्मिक उद्दिष्टे, स्कंद पुराणातील माहात्म्य आणि नर्मदा मातेप्रती समर्पण भाव समजून घ्या.',
       gu: '૧૦ આધ્યાત્મિક ઉદ્દેશ્યો, સ્કંદ પુરાણનું મહાત્મ્ય અને માઁ નર્મદા પ્રત્યે ભક્તિ-તપસ્યા સમજો.',
@@ -67,10 +67,10 @@ const RELATED_DATA: Record<RelatedTargetKey, RelatedCardData> = {
       gu: 'પવિત્ર તીર્થ',
     },
     title: {
-      en: '20 Sacred Pilgrimage Places & Ghats',
-      hi: '20 प्रमुख तीर्थ, पावन घाट एवं मंदिर',
-      mr: '२० प्रमुख तीर्थक्षेत्रे, पावन घाट आणि मंदिरे',
-      gu: '૨૦ પ્રમુખ તીર્થ, પવિત્ર ઘાટ અને મંદિરો',
+      en: 'Sacred Places on Narmada Parikrama',
+      hi: 'नर्मदा परिक्रमा के प्रमुख तीर्थ व घाट',
+      mr: 'नर्मदा परिक्रमेतील प्रमुख तीर्थक्षेत्रे व घाट',
+      gu: 'નર્મદા પરિક્રમાના પ્રમુખ તીર્થ અને ઘાટ',
     },
     desc: {
       en: 'Discover Omkareshwar Jyotirlinga, Amarkantak origin, Maheshwar Ahilya Ghat, and key shrines across MP, Maharashtra & Gujarat.',
@@ -89,10 +89,10 @@ const RELATED_DATA: Record<RelatedTargetKey, RelatedCardData> = {
       gu: 'વાહન યાત્રા',
     },
     title: {
-      en: '18-Day Vehicle Yatra By Car',
-      hi: '18-दिवसीय वाहन यात्रा (कार से परिक्रमा)',
-      mr: '१८-दिवसीय वाहन यात्रा (कारने परिक्रमा)',
-      gu: '૧૮-દિવસીય વાહન યાત્રા (કાર દ્વારા પરિક્રમા)',
+      en: 'Narmada Parikrama by Car (18 Days)',
+      hi: '18-दिवसीय वाहन यात्रा (कार से नर्मदा परिक्रमा)',
+      mr: '१८-दिवसीय वाहन यात्रा (कारने नर्मदा परिक्रमा)',
+      gu: '૧૮-દિવસીય વાહન યાત્રા (કાર દ્વારા નર્મદા પરિક્રમા)',
     },
     desc: {
       en: 'View Route 1 and Route 2 proposed 18-day driving circuits, walking vs car comparison, and practical road travel advice.',
@@ -105,19 +105,19 @@ const RELATED_DATA: Record<RelatedTargetKey, RelatedCardData> = {
     href: '/trips/',
     icon: <CalendarDays size={24} className="related-icon" />,
     badge: {
-      en: 'Packages & Batches',
-      hi: 'पैकेज एवं बुकिंग',
-      mr: 'पॅकेज आणि बुकिंग',
-      gu: 'પેકેજ અને બુકિંગ',
+      en: 'Vehicle Yatra',
+      hi: 'वाहन यात्रा बैच',
+      mr: 'वाहन यात्रा बॅचेस',
+      gu: 'વાહન યાત્રા બેચ',
     },
     title: {
-      en: '2026 Vehicle Yatra Batches (₹51,000)',
-      hi: '2026 वाहन यात्रा पैकेज एवं बैच (₹51,000)',
-      mr: '२०२६ वाहन यात्रा बॅचेस आणि पॅकेज (₹५१,०००)',
-      gu: '૨૦૨૬ વાહન યાત્રા બેચ અને પેકેજ (₹૫૧,૦૦૦)',
+      en: 'Narmada Parikrama Trips: 2026 Batches',
+      hi: 'नर्मदा परिक्रमा 2026 यात्रा बैच',
+      mr: 'नर्मदा परिक्रमा २०२६ यात्रा बॅचेस',
+      gu: 'નર્મદા પરિક્રમા ૨૦૨૬ યાત્રા બેચ',
     },
     desc: {
-      en: 'Explore upcoming October and November 2026 departure batches, transparent pricing (₹51,000/person), and booking contact.',
+      en: 'Explore upcoming October and November 2026 departure batches, transparent pricing (₹51,000/person), and itinerary details.',
       hi: 'अक्टूबर व नवंबर 2026 के निश्चित बैच, ₹51,000 प्रति व्यक्ति पैकेज, सुविधाएं और यात्रा योजना परामर्श।',
       mr: 'ऑक्टोबर आणि नोव्हेंबर २०२६ च्या निश्चित बॅचेस, ₹५१,००० प्रति व्यक्ती पॅकेज आणि नोंदणी माहिती.',
       gu: 'ઓક્ટોબર અને નવેમ્બર ૨૦૨૬ ની નિશ્ચિત બેચ, ₹૫૧,૦૦૦ પ્રતિ વ્યક્તિ પેકેજ અને બુકિંગ વિગતો.',
@@ -133,10 +133,10 @@ const RELATED_DATA: Record<RelatedTargetKey, RelatedCardData> = {
       gu: 'વ્યવહારિક માર્ગદર્શિકા',
     },
     title: {
-      en: 'Travel Guide: Stay, Food, Safety & Packing',
-      hi: 'यात्रा गाइड: आवास, भोजन, सुरक्षा व तैयारी',
-      mr: 'प्रवास मार्गदर्शिका: निवास, भोजन, सुरक्षा व साहित्य',
-      gu: 'યાત્રા માર્ગદર્શિકા: આવાસ, ભોજન, સુરક્ષા અને પેકિંગ',
+      en: 'Narmada Parikrama Travel Guide',
+      hi: 'नर्मदा परिक्रमा यात्रा गाइड: आवास व भोजन',
+      mr: 'नर्मदा परिक्रमा प्रवास मार्गदर्शिका: निवास व भोजन',
+      gu: 'નર્મદા પરિક્રમા યાત્રા માર્ગદર્શિકા: આવાસ અને ભોજન',
     },
     desc: {
       en: 'Comprehensive advice on ashrams, dharamshalas, annakshetras, Shoolpani preparation, packing lists, and safety rules.',
@@ -155,10 +155,10 @@ const RELATED_DATA: Record<RelatedTargetKey, RelatedCardData> = {
       gu: 'પ્રશ્નોત્તરી',
     },
     title: {
-      en: 'Frequently Asked Questions (FAQ)',
-      hi: 'अक्सर पूछे जाने वाले प्रश्न (FAQ)',
-      mr: 'नेहमी विचारले जाणारे प्रश्न (FAQ)',
-      gu: 'વારંવાર પૂછાતા પ્રશ્નો (FAQ)',
+      en: 'Narmada Parikrama FAQ & Answers',
+      hi: 'नर्मदा परिक्रमा प्रश्नोत्तरी (FAQ)',
+      mr: 'नर्मदा परिक्रमा प्रश्नोत्तरे (FAQ)',
+      gu: 'નર્મદા પરિક્રમા પ્રશ્નોત્તરી (FAQ)',
     },
     desc: {
       en: '15 essential answers on parikrama distance, duration, walking vs vehicle yatra, stays, food, season, and senior citizen advice.',
@@ -203,7 +203,7 @@ export function RelatedLinks({ targets }: { targets: RelatedTargetKey[] }) {
             const data = RELATED_DATA[key];
             if (!data) return null;
             return (
-              <a key={key} href={data.href} className="related-link-card">
+              <a key={key} href={buildLocalizedPath(data.href, lang)} className="related-link-card">
                 <div className="related-card-top">
                   <div className="related-icon-wrap">{data.icon}</div>
                   <span className="related-badge">{data.badge[lang] || data.badge['en']}</span>

@@ -64,7 +64,7 @@ function routeTrailingSlashPlugin(): Plugin {
     configureServer(server) {
       server.middlewares.use((req: any, res: any, next: any) => {
         const url = req.url ? req.url.split('?')[0] : '';
-        const knownRoutes = [
+        const baseRoutes = [
           '/narmada-parikrama',
           '/narmada-parikrama/route',
           '/narmada-parikrama/places',
@@ -72,6 +72,13 @@ function routeTrailingSlashPlugin(): Plugin {
           '/narmada-parikrama/travel-guide',
           '/narmada-parikrama/faq',
           '/trips',
+        ];
+        const prefixes = ['', '/hi', '/mr', '/gu'];
+        const knownRoutes = [
+          '/hi',
+          '/mr',
+          '/gu',
+          ...prefixes.flatMap((pre) => baseRoutes.map((b) => `${pre}${b}`)),
         ];
         if (knownRoutes.includes(url)) {
           const query = req.url.includes('?') ? req.url.slice(req.url.indexOf('?')) : '';
@@ -112,20 +119,30 @@ function seoBetaPlugin(): Plugin {
   };
 }
 
+const basePages = [
+  { name: 'main', path: 'index.html' },
+  { name: 'narmadaParikrama', path: 'narmada-parikrama/index.html' },
+  { name: 'route', path: 'narmada-parikrama/route/index.html' },
+  { name: 'places', path: 'narmada-parikrama/places/index.html' },
+  { name: 'byCar', path: 'narmada-parikrama/by-car/index.html' },
+  { name: 'travelGuide', path: 'narmada-parikrama/travel-guide/index.html' },
+  { name: 'faq', path: 'narmada-parikrama/faq/index.html' },
+  { name: 'trips', path: 'trips/index.html' },
+];
+
+const rollupInputs: Record<string, string> = {};
+for (const p of basePages) {
+  rollupInputs[p.name] = resolve(import.meta.dirname, p.path);
+  rollupInputs[`hi_${p.name}`] = resolve(import.meta.dirname, 'hi', p.path);
+  rollupInputs[`mr_${p.name}`] = resolve(import.meta.dirname, 'mr', p.path);
+  rollupInputs[`gu_${p.name}`] = resolve(import.meta.dirname, 'gu', p.path);
+}
+
 export default defineConfig({
   plugins: [react(), contactApiPlugin(), routeTrailingSlashPlugin(), seoBetaPlugin()],
   build: {
     rollupOptions: {
-      input: {
-        main: resolve(import.meta.dirname, 'index.html'),
-        narmadaParikrama: resolve(import.meta.dirname, 'narmada-parikrama/index.html'),
-        route: resolve(import.meta.dirname, 'narmada-parikrama/route/index.html'),
-        places: resolve(import.meta.dirname, 'narmada-parikrama/places/index.html'),
-        byCar: resolve(import.meta.dirname, 'narmada-parikrama/by-car/index.html'),
-        travelGuide: resolve(import.meta.dirname, 'narmada-parikrama/travel-guide/index.html'),
-        faq: resolve(import.meta.dirname, 'narmada-parikrama/faq/index.html'),
-        trips: resolve(import.meta.dirname, 'trips/index.html'),
-      },
+      input: rollupInputs,
       output: {
         manualChunks(id) {
           if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {

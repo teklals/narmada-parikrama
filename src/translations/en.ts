@@ -3,7 +3,7 @@ import { Translations } from './types';
 export const en: Translations = {
   nav: {
     home: 'Home',
-    parikrama: 'Parikrama',
+    parikrama: 'Narmada Parikrama',
     places: 'Places',
     route: 'Route',
     travelGuide: 'Travel Guide',
@@ -26,7 +26,7 @@ export const en: Translations = {
     heroTitleHighlight: 'Narmada Parikrama',
     heroSubtitle: 'Informational & Travel Guide Platform for Maa Narmada Pilgrimage',
     heroDesc:
-      'A revered spiritual circumambulation along the holy Narmada River across Madhya Pradesh, Maharashtra, and Gujarat. Explore practical route guidance, important shrines, stay and food insights, and travel planning for both traditional walking pilgrims and our proposed vehicle-assisted yatra.',
+      'The sacred Narmada Parikrama is a revered spiritual circumambulation along the holy Narmada River across Madhya Pradesh, Maharashtra, and Gujarat. As an independent informational and travel guide platform, this website offers practical route guidance, sacred shrines, stay and food insights, and travel planning for both traditional walking pilgrims and vehicle-assisted yatra.',
     exploreBtn: 'Explore Parikrama Route',
     placesBtn: 'Sacred Places Directory',
     planBtn: 'Plan Your Yatra',
@@ -331,7 +331,7 @@ export const en: Translations = {
     routeEyebrow: 'Visual Route Sequence',
     routeTitle: 'Narmada Parikrama Route: Amarkantak to Gujarat and Back',
     routeSubtitle:
-      'The journey sequence organized from documented travel experiences along the river.',
+      'Explore the complete Narmada Parikrama route sequence and 17 key pilgrimage stops from Amarkantak across Madhya Pradesh, Maharashtra, and Gujarat.',
     routeDisclaimer:
       'This route sequence reflects documented travel experiences. Actual walking paths and road detours may vary according to season, water levels, and local conditions. Verify current conditions locally.',
     routeStops: [
@@ -458,9 +458,9 @@ export const en: Translations = {
 
     // Places Directory
     placesEyebrow: 'Key Destinations',
-    placesTitle: 'Sacred Places Along Maa Narmada',
+    placesTitle: 'Sacred Places on Narmada Parikrama',
     placesSubtitle:
-      'Destination profiles extracted from documented travel experiences, covering spiritual significance, visitor tips, stay, and food.',
+      'Discover 20 major sacred tirthas, temples, and holy ghats along the Narmada Parikrama pilgrimage with spiritual significance, darshan tips, stay, and food insights.',
     placesFilterAll: 'All Destinations',
     placesFilterMP: 'Madhya Pradesh',
     placesFilterMH: 'Maharashtra',
@@ -1101,7 +1101,7 @@ export const en: Translations = {
     heroTitle: '18-Day Narmada Parikrama ',
     heroTitleHighlight: 'Our Proposed Vehicle Yatra',
     heroDesc:
-      'A curated 18-day road pilgrimage around Maa Narmada for devotees seeking sacred darshan, comfortable transport, vegetarian meals, and organized rest within limited time.',
+      'Explore upcoming 2026 departure batches for our proposed 18-day Narmada Parikrama vehicle pilgrimage, featuring sacred temple darshan, comfortable road travel, satvik meals, and seasoned yatra guidance.',
     heroCta: 'View Upcoming Batches',
     departuresEyebrow: 'UPCOMING DEPARTURES · 2026',
     departuresTitle: 'Select Your ',

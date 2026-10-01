@@ -22,7 +22,7 @@ import {
   Users,
   Utensils,
 } from 'lucide-react';
-import { useLanguage } from '../translations';
+import { useLanguage, buildLocalizedPath } from '../translations';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { RelatedLinks } from '../components/RelatedLinks';
 
@@ -104,7 +104,7 @@ export function TravelGuidePage({ openPlanner }: TravelGuidePageProps) {
       ? 'नर्मदा परिक्रमेदरम्यान आश्रम, धर्मशाळा, अन्नक्षेत्र, शूलपाणी तयारी, साहित्याची यादी, सुरक्षा नियम आणि आरोग्यविषयक आवश्यक मार्गदर्शनाचा संपूर्ण संग्रह.'
       : lang === 'gu'
       ? 'માઁ નર્મદા પરિક્રમા દરમિયાન આશ્રમ, ધર્મશાળા, અન્નક્ષેત્ર, શૂલપાણી ઝાડીની તૈયારી, જરૂરી સામાનની યાદી, સુરક્ષા નિયમો અને સ્વાસ્થ્ય સંબંધી સંપૂર્ણ માર્ગદર્શન.'
-      : 'Complete practical guidance on accommodation, ashram stays, satvik food, bhojanalayas, physical challenges, Shoolpani preparation, packing lists, and essential safety rules for pilgrims.';
+      : 'Comprehensive practical guidance for the sacred Narmada Parikrama: accommodation, ashram stays, satvik food, bhojanalayas, physical challenges, Shoolpani preparation, packing lists, and essential safety rules for pilgrims.';
 
   const viewAllFaqsText =
     t.home.faqViewAll ||
@@ -405,7 +405,7 @@ export function TravelGuidePage({ openPlanner }: TravelGuidePageProps) {
               </div>
 
               <div className="faq-preview-cta">
-                <a href="/narmada-parikrama/faq/" className="primary">
+                <a href={buildLocalizedPath('/narmada-parikrama/faq/', lang)} className="primary">
                   {viewAllFaqsText} <ArrowRight size={18} />
                 </a>
               </div>

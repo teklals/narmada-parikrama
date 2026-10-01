@@ -12,7 +12,7 @@ import {
   Utensils,
   CheckCircle2,
 } from 'lucide-react';
-import { useLanguage } from '../translations';
+import { useLanguage, buildLocalizedPath } from '../translations';
 
 const CONTACT_PHONE_1 = '+91-9958503108';
 const CONTACT_PHONE_2 = '+91-9315852737';
@@ -37,15 +37,15 @@ export function HomePage({ openPlanner }: HomePageProps) {
 
   const hubCards = [
     {
-      href: '/narmada-parikrama/',
+      href: buildLocalizedPath('/narmada-parikrama/', lang),
       icon: <Sparkles size={24} />,
       badge: lang === 'hi' ? 'आध्यात्मिक साधना' : lang === 'mr' ? 'आध्यात्मिक साधना' : lang === 'gu' ? 'આધ્યાત્મિક સાધના' : 'Spiritual Guide',
-      title: lang === 'hi' ? 'नर्मदा परिक्रमा क्यों करें?' : lang === 'mr' ? 'नर्मदा परिक्रमा का करावी?' : lang === 'gu' ? 'નર્મદા પરિક્રમા કેમ કરવી?' : 'Why Undertake Parikrama?',
+      title: lang === 'hi' ? 'नर्मदा परिक्रमा क्यों करें?' : lang === 'mr' ? 'नर्मदा परिक्रमा का करावी?' : lang === 'gu' ? 'નર્મદા પરિક્રમા કેમ કરવી?' : 'Complete Narmada Parikrama Guide',
       desc: lang === 'hi' ? '10 प्रमुख आध्यात्मिक उद्देश्य, स्कंद पुराण में वर्णित माहात्म्य एवं माँ नर्मदा के प्रति अटूट निष्ठा।' : lang === 'mr' ? '१० प्रमुख आध्यात्मिक उद्दिष्टे, स्कंद पुराणातील माहात्म्य आणि समर्पण भाव जाणून घ्या.' : lang === 'gu' ? '૧૦ આધ્યાત્મિક ઉદ્દેશ્યો, સ્કંદ પુરાણનું મહાત્મ્ય અને માઁ નર્મદા પ્રત્યે ભક્તિ-તપસ્યા.' : '10 core spiritual objectives, Skanda Purana significance, and unwavering devotion to Maa Narmada.',
-      cta: lang === 'hi' ? 'संपूर्ण मार्गदर्शिका' : lang === 'mr' ? 'संपूर्ण माहिती' : lang === 'gu' ? 'સંપૂર્ણ માર્ગદર્શિકા' : 'Explore Spiritual Guide',
+      cta: lang === 'hi' ? 'संपूर्ण मार्गदर्शिका' : lang === 'mr' ? 'संपूर्ण माहिती' : lang === 'gu' ? 'સંપૂર્ણ માર્ગદર્શિકા' : 'Explore Parikrama Guide',
     },
     {
-      href: '/narmada-parikrama/route/',
+      href: buildLocalizedPath('/narmada-parikrama/route/', lang),
       icon: <Compass size={24} />,
       badge: lang === 'hi' ? 'यात्रा मार्ग' : lang === 'mr' ? 'यात्रा मार्ग' : lang === 'gu' ? 'યાત્રા માર્ગ' : 'Pilgrimage Route',
       title: lang === 'hi' ? '17 प्रमुख पड़ाव एवं मार्ग' : lang === 'mr' ? '१७ प्रमुख टप्पे आणि मार्ग' : lang === 'gu' ? '૧૭ મુખ્ય મુકામ અને માર્ગ' : 'Route & 17 Key Stops',
@@ -53,7 +53,7 @@ export function HomePage({ openPlanner }: HomePageProps) {
       cta: lang === 'hi' ? 'मार्ग देखें' : lang === 'mr' ? 'मार्ग पहा' : lang === 'gu' ? 'માર્ગ જુઓ' : 'Explore Route Timeline',
     },
     {
-      href: '/narmada-parikrama/places/',
+      href: buildLocalizedPath('/narmada-parikrama/places/', lang),
       icon: <MapPin size={24} />,
       badge: lang === 'hi' ? 'पावन तीर्थ' : lang === 'mr' ? 'पावन तीर्थक्षेत्रे' : lang === 'gu' ? 'પવિત્ર તીર્થ' : 'Sacred Tirthas',
       title: lang === 'hi' ? '20 प्रमुख तीर्थ एवं घाट' : lang === 'mr' ? '२० प्रमुख तीर्थक्षेत्रे आणि घाट' : lang === 'gu' ? '૨૦ પ્રમુખ તીર્થ અને ઘાટ' : '20 Sacred Pilgrimage Places',
@@ -61,7 +61,7 @@ export function HomePage({ openPlanner }: HomePageProps) {
       cta: lang === 'hi' ? 'तीर्थ सूची देखें' : lang === 'mr' ? 'तीर्थक्षेत्रे पहा' : lang === 'gu' ? 'તીર્થ યાદી જુઓ' : 'View Places Directory',
     },
     {
-      href: '/narmada-parikrama/travel-guide/',
+      href: buildLocalizedPath('/narmada-parikrama/travel-guide/', lang),
       icon: <Hotel size={24} />,
       badge: lang === 'hi' ? 'यात्रा गाइड' : lang === 'mr' ? 'प्रवास मार्गदर्शिका' : lang === 'gu' ? 'યાત્રા માર્ગદર્શિકા' : 'Travel Guide',
       title: lang === 'hi' ? 'आवास, भोजन व तैयारी' : lang === 'mr' ? 'निवास, भोजन आणि साहित्य' : lang === 'gu' ? 'આવાસ, ભોજન અને પેકિંગ' : 'Stay, Food, Safety & Packing',
@@ -69,7 +69,7 @@ export function HomePage({ openPlanner }: HomePageProps) {
       cta: lang === 'hi' ? 'गाइड देखें' : lang === 'mr' ? 'मार्गदर्शिका पहा' : lang === 'gu' ? 'માર્ગદર્શિકા જુઓ' : 'View Travel Guide',
     },
     {
-      href: '/narmada-parikrama/by-car/',
+      href: buildLocalizedPath('/narmada-parikrama/by-car/', lang),
       icon: <Car size={24} />,
       badge: lang === 'hi' ? 'वाहन यात्रा' : lang === 'mr' ? 'वाहन यात्रा' : lang === 'gu' ? 'વાહન યાત્રા' : 'Vehicle Yatra',
       title: lang === 'hi' ? '18-दिवसीय कार यात्रा' : lang === 'mr' ? '१८-दिवसीय कारने यात्रा' : lang === 'gu' ? '૧૮-દિવસીય કાર યાત્રા' : '18-Day Vehicle Yatra',
@@ -95,7 +95,7 @@ export function HomePage({ openPlanner }: HomePageProps) {
               <div className="hero-subtitle">{t.home.heroSubtitle}</div>
               <p>{t.home.heroDesc}</p>
               <div className="actions">
-                <a className="primary" href="/narmada-parikrama/route/">
+                <a className="primary" href={buildLocalizedPath('/narmada-parikrama/route/', lang)}>
                   {t.home.exploreBtn} <ArrowRight size={18} />
                 </a>
                 <button type="button" className="secondary" onClick={openPlanner}>
@@ -181,10 +181,10 @@ export function HomePage({ openPlanner }: HomePageProps) {
                   : 'Detailed practical guidance on ashram stays, dharamshalas, satvik annakshetras, Shoolpani preparation, packing lists, and parikrama safety rules is available on our dedicated Travel Guide page.'}
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', alignItems: 'center' }}>
-                <a className="primary" href="/narmada-parikrama/travel-guide/" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                <a className="primary" href={buildLocalizedPath('/narmada-parikrama/travel-guide/', lang)} style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
                   {lang === 'hi' ? 'संपूर्ण यात्रा गाइड खोलें' : lang === 'mr' ? 'संपूर्ण मार्गदर्शिका उघडा' : lang === 'gu' ? 'સંપૂર્ણ યાત્રા માર્ગદર્શિકા જુઓ' : 'Explore Complete Travel Guide'} <ArrowRight size={17} />
                 </a>
-                <a href="/narmada-parikrama/by-car/" style={{ color: '#1B2430', fontWeight: 600, fontSize: '14.5px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                <a href={buildLocalizedPath('/narmada-parikrama/by-car/', lang)} style={{ color: '#1B2430', fontWeight: 600, fontSize: '14.5px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
                   {lang === 'hi' ? '18-दिवसीय कार यात्रा देखें →' : lang === 'mr' ? '१८-दिवसीय कार यात्रा पहा →' : lang === 'gu' ? '૧૮-દિવસીય કાર યાત્રા જુઓ →' : '18-Day Vehicle Circuits →'}
                 </a>
               </div>

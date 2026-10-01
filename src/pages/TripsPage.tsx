@@ -58,7 +58,13 @@ export function TripsPage({ openPlanner }: TripsPageProps) {
 
   return (
     <div className="trips-page">
-      <Breadcrumbs items={[{ key: 'home', href: '/' }, { key: 'trips' }]} />
+      <Breadcrumbs
+        items={[
+          { key: 'home', href: '/' },
+          { key: 'parikrama', href: '/narmada-parikrama/' },
+          { key: 'trips' },
+        ]}
+      />
 
       <div className="site">
         <main>

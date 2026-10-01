@@ -1,42 +1,323 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://narmadaparikrama.logicbase.co.in/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/hi/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/mr/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/gu/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/" />
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://narmadaparikrama.logicbase.co.in/narmada-parikrama/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/" />
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://narmadaparikrama.logicbase.co.in/narmada-parikrama/route/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/route/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/route/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/route/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/route/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/route/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/route/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/route/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/route/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/route/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/route/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/route/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/route/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/route/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/route/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/route/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/route/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/route/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/route/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/route/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/route/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/route/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/route/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/route/" />
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://narmadaparikrama.logicbase.co.in/narmada-parikrama/places/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/places/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/places/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/places/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/places/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/places/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/places/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/places/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/places/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/places/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/places/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/places/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/places/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/places/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/places/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/places/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/places/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/places/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/places/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/places/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/places/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/places/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/places/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/places/" />
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://narmadaparikrama.logicbase.co.in/narmada-parikrama/by-car/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/by-car/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/by-car/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/by-car/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/by-car/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/by-car/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/by-car/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/by-car/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/by-car/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/by-car/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/by-car/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/by-car/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/by-car/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/by-car/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/by-car/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/by-car/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/by-car/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/by-car/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/by-car/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/by-car/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/by-car/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/by-car/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/by-car/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/by-car/" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://narmadaparikrama.logicbase.co.in/narmada-parikrama/travel-guide/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/travel-guide/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/travel-guide/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/travel-guide/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/travel-guide/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/travel-guide/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/travel-guide/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/travel-guide/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/travel-guide/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/travel-guide/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/travel-guide/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/travel-guide/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/travel-guide/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/travel-guide/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/travel-guide/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/travel-guide/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/travel-guide/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/travel-guide/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/travel-guide/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/travel-guide/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/travel-guide/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/travel-guide/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/travel-guide/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/travel-guide/" />
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://narmadaparikrama.logicbase.co.in/narmada-parikrama/faq/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/faq/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/faq/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/faq/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/faq/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/faq/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/faq/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/faq/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/faq/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/faq/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/faq/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/faq/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/faq/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/faq/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/faq/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/faq/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/faq/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/faq/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/faq/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/faq/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/narmada-parikrama/faq/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/narmada-parikrama/faq/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/narmada-parikrama/faq/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/narmada-parikrama/faq/" />
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://narmadaparikrama.logicbase.co.in/trips/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/trips/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/trips/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/trips/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/trips/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/trips/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/hi/trips/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/trips/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/trips/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/trips/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/trips/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/trips/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/mr/trips/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/trips/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/trips/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/trips/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/trips/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/trips/" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://narmadaparikrama.logicbase.co.in/gu/trips/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://narmadaparikrama.logicbase.co.in/trips/" />
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://narmadaparikrama.logicbase.co.in/trips/" />
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://narmadaparikrama.logicbase.co.in/hi/trips/" />
+    <xhtml:link rel="alternate" hreflang="mr-IN" href="https://narmadaparikrama.logicbase.co.in/mr/trips/" />
+    <xhtml:link rel="alternate" hreflang="gu-IN" href="https://narmadaparikrama.logicbase.co.in/gu/trips/" />
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLanguage } from '../translations';
+import { useLanguage, buildLocalizedPath } from '../translations';
 
 const BREADCRUMB_LABELS: Record<string, Record<string, string>> = {
   home: { en: 'Home', hi: 'होम', mr: 'होम', gu: 'હોમ' },
@@ -34,6 +34,7 @@ export function Breadcrumbs({ items }: { items: BreadcrumbEntry[] }) {
           {items.map((item, idx) => {
             const isLast = idx === items.length - 1;
             const label = item.customLabel || getBreadcrumbLabel(item.key, lang);
+            const localizedHref = item.href ? buildLocalizedPath(item.href, lang) : undefined;
             return (
               <li
                 key={idx}
@@ -42,8 +43,8 @@ export function Breadcrumbs({ items }: { items: BreadcrumbEntry[] }) {
                 itemScope
                 itemType="https://schema.org/ListItem"
               >
-                {item.href && !isLast ? (
-                  <a href={item.href} itemProp="item">
+                {localizedHref && !isLast ? (
+                  <a href={localizedHref} itemProp="item">
                     <span itemProp="name">{label}</span>
                   </a>
                 ) : (

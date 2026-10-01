@@ -65,7 +65,7 @@ export function FAQPage({ openPlanner }: FAQPageProps) {
       ? 'नर्मदा परिक्रमेचे अंतर, कालावधी, पायी वि. वाहन यात्रा, मुक्काम, सात्त्विक भोजन आणि ज्येष्ठ नागरिकांच्या नियोजनाविषयी १५ महत्त्वाच्या प्रश्नांची उत्तरे.'
       : lang === 'gu'
       ? 'માઁ નર્મદા પરિક્રમાનું કુલ અંતર, સમયગાળો, પદયાત્રા વિ. વાહન યાત્રા, પવિત્ર આશ્રમોમાં આવાસ, ભોજન અને વરિષ્ઠ નાગરિકો માટે ૧૫ પ્રામાણિક પ્રશ્નોના ઉત્તર.'
-      : 'Authentic answers to the 15 most important questions regarding parikrama distance, duration, walking vs vehicle tours, ashram stays, food availability, difficult sections, and senior citizen travel.';
+      : 'Authentic answers to 15 essential questions about Narmada Parikrama: total distance, duration, walking vs vehicle yatra, ashram stays, food availability, difficult sections, and senior citizen travel.';
 
   const toggleFaq = (idx: number) => {
     setOpenFaqIdx((prev) => (prev === idx ? null : idx));
@@ -192,7 +192,7 @@ export function FAQPage({ openPlanner }: FAQPageProps) {
           </section>
 
           {/* Inter-linking between Canonical Pages */}
-          <RelatedLinks targets={['travelGuide', 'route', 'places', 'byCar', 'trips']} />
+          <RelatedLinks targets={['parikrama', 'travelGuide', 'route', 'places', 'byCar', 'trips']} />
 
           {/* Contact CTA */}
           <section id="contact" className="cta">

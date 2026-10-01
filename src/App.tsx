@@ -13,7 +13,17 @@ import {
   LANGUAGES,
   LanguageProvider,
   useLanguage,
+  getLanguageFromPath,
+  stripLanguagePrefix,
+  buildLocalizedPath,
+  Language,
 } from './translations';
+import {
+  AppRoute,
+  SEO_DATA,
+  getCanonicalUrl,
+  getHreflangCluster,
+} from './translations/seoData';
 
 const HomePage = lazy(() => import('./pages/HomePage').then((m) => ({ default: m.HomePage })));
 const ParikramaWhyPage = lazy(() => import('./pages/ParikramaWhyPage').then((m) => ({ default: m.ParikramaWhyPage })));
@@ -136,10 +146,9 @@ function ContactDetails() {
   );
 }
 
-export type AppRoute = 'home' | 'parikrama' | 'route' | 'places' | 'byCar' | 'travelGuide' | 'faq' | 'trips';
-
 export function getRouteFromPath(pathname: string): AppRoute {
-  const clean = pathname.replace(/\/+$/, '') || '/';
+  const unPrefixed = stripLanguagePrefix(pathname);
+  const clean = unPrefixed.replace(/\/+$/, '') || '/';
   if (clean === '/trips') return 'trips';
   if (clean === '/narmada-parikrama/faq') return 'faq';
   if (clean === '/narmada-parikrama/travel-guide') return 'travelGuide';
@@ -150,69 +159,11 @@ export function getRouteFromPath(pathname: string): AppRoute {
   return 'home';
 }
 
-const PAGE_META: Record<
-  AppRoute,
-  {
-    title: string;
-    description: string;
-    canonical: string;
-  }
-> = {
-  home: {
-    title: 'Narmada Parikrama | Complete Holy Pilgrimage Guide & Route',
-    description:
-      'Informational and travel guide platform for the sacred Narmada Parikrama pilgrimage. Explore parikrama routes, temples, ghats, stay and food guidance, and vehicle yatra options.',
-    canonical: 'https://narmadaparikrama.logicbase.co.in/',
-  },
-  parikrama: {
-    title: 'Narmada Parikrama | Complete Pilgrimage Guide',
-    description:
-      'Comprehensive guide to the sacred Narmada Parikrama pilgrimage: spiritual significance, religious traditions, pilgrim rules, devotion, and reverence for holy Maa Narmada.',
-    canonical: 'https://narmadaparikrama.logicbase.co.in/narmada-parikrama/',
-  },
-  route: {
-    title: 'Narmada Parikrama Route | Amarkantak to Gujarat and Back',
-    description:
-      'Detailed Narmada Parikrama route guide covering 17 key pilgrimage stops from Amarkantak across Madhya Pradesh, Maharashtra, and Gujarat with day-by-day path details.',
-    canonical: 'https://narmadaparikrama.logicbase.co.in/narmada-parikrama/route/',
-  },
-  places: {
-    title: 'Sacred Places on Narmada Parikrama | Temples & Ghats',
-    description:
-      'Discover 20 sacred pilgrimage places, temples, and holy ghats along Narmada Parikrama across Madhya Pradesh, Maharashtra, and Gujarat with darshan timings and tips.',
-    canonical: 'https://narmadaparikrama.logicbase.co.in/narmada-parikrama/places/',
-  },
-  byCar: {
-    title: 'Narmada Parikrama by Car | 18-Day Vehicle Yatra Guide',
-    description:
-      'Complete guide for Narmada Parikrama by car: proposed 18-day vehicle yatra itinerary, road route comparison, driving tips, ghats, temples, and daily travel stops.',
-    canonical: 'https://narmadaparikrama.logicbase.co.in/narmada-parikrama/by-car/',
-  },
-  travelGuide: {
-    title: 'Narmada Parikrama Travel Guide | Stay, Food, Safety & Packing',
-    description:
-      'Practical travel guide for Narmada Parikrama: ashram stay options, bhojanalayas, food advice, packing checklist, Shoolpani preparation, and pilgrim safety tips.',
-    canonical: 'https://narmadaparikrama.logicbase.co.in/narmada-parikrama/travel-guide/',
-  },
-  faq: {
-    title: 'Narmada Parikrama FAQ | Routes, Stay, Food & Travel',
-    description:
-      'Frequently asked questions about Narmada Parikrama: pilgrimage routes, walking vs vehicle yatra, stay options, food facilities, safety, Shoolpani, and travel advice.',
-    canonical: 'https://narmadaparikrama.logicbase.co.in/narmada-parikrama/faq/',
-  },
-  trips: {
-    title: 'Narmada Parikrama Trips | Vehicle Yatra 2026',
-    description:
-      'Travel guide and itinerary details for 18-day Narmada Parikrama vehicle yatra in 2026: October and November departure batches, sacred temple darshan, and route plan.',
-    canonical: 'https://narmadaparikrama.logicbase.co.in/trips/',
-  },
-};
-
 const DEFAULT_SHARE_IMAGE = 'https://narmadaparikrama.logicbase.co.in/assets/narmada-parikrama-logo.png';
 
-function updateHeadMeta(route: AppRoute) {
+function updateHeadMeta(route: AppRoute, lang: Language) {
   if (typeof document === 'undefined') return;
-  const meta = PAGE_META[route] || PAGE_META.home;
+  const meta = (SEO_DATA[lang] && SEO_DATA[lang][route]) || SEO_DATA.en[route];
   document.title = meta.title;
 
   const setMeta = (nameOrProperty: string, attrName: 'name' | 'property', content: string) => {
@@ -239,10 +190,12 @@ function updateHeadMeta(route: AppRoute) {
     setMeta('googlebot', 'name', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
   }
 
+  const canonicalUrl = getCanonicalUrl(route, lang);
+
   setMeta('description', 'name', meta.description);
   setMeta('og:title', 'property', meta.title);
   setMeta('og:description', 'property', meta.description);
-  setMeta('og:url', 'property', meta.canonical);
+  setMeta('og:url', 'property', canonicalUrl);
   setMeta('og:site_name', 'property', 'Narmada Parikrama');
   setMeta('og:image', 'property', DEFAULT_SHARE_IMAGE);
   setMeta('twitter:card', 'name', 'summary');
@@ -256,7 +209,19 @@ function updateHeadMeta(route: AppRoute) {
     canonicalLink.setAttribute('rel', 'canonical');
     document.head.appendChild(canonicalLink);
   }
-  canonicalLink.setAttribute('href', meta.canonical);
+  canonicalLink.setAttribute('href', canonicalUrl);
+
+  const hreflangs = getHreflangCluster(route);
+  for (const h of hreflangs) {
+    let link = document.querySelector(`link[rel="alternate"][hreflang="${h.lang}"]`);
+    if (!link) {
+      link = document.createElement('link');
+      link.setAttribute('rel', 'alternate');
+      link.setAttribute('hreflang', h.lang);
+      document.head.appendChild(link);
+    }
+    link.setAttribute('href', h.href);
+  }
 }
 
 function LanguageDropdown() {
@@ -330,12 +295,12 @@ interface HeaderProps {
 }
 
 function Header({ currentRoute, openPlanner, openMenu, closeMenu, menuOpen }: HeaderProps) {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
 
   return (
     <header className="header">
       <div className="container nav-wrap">
-        <a className="brand" href="/" aria-label="Narmada Parikrama Home">
+        <a className="brand" href={buildLocalizedPath('/', lang)} aria-label="Narmada Parikrama Home">
           <img
             src="/assets/narmada-parikrama-logo.png"
             alt="Narmada Parikrama"
@@ -351,22 +316,22 @@ function Header({ currentRoute, openPlanner, openMenu, closeMenu, menuOpen }: He
         </a>
 
         <nav className="desktop-nav" aria-label="Main navigation">
-          <a className={currentRoute === 'home' ? 'active' : ''} href="/">
+          <a className={currentRoute === 'home' ? 'active' : ''} href={buildLocalizedPath('/', lang)}>
             {t.nav.home}
           </a>
-          <a className={currentRoute === 'parikrama' ? 'active' : ''} href="/narmada-parikrama/">
+          <a className={currentRoute === 'parikrama' ? 'active' : ''} href={buildLocalizedPath('/narmada-parikrama/', lang)}>
             {t.nav.parikrama}
           </a>
-          <a className={currentRoute === 'places' ? 'active' : ''} href="/narmada-parikrama/places/">
+          <a className={currentRoute === 'places' ? 'active' : ''} href={buildLocalizedPath('/narmada-parikrama/places/', lang)}>
             {t.nav.places}
           </a>
-          <a className={currentRoute === 'route' ? 'active' : ''} href="/narmada-parikrama/route/">
+          <a className={currentRoute === 'route' ? 'active' : ''} href={buildLocalizedPath('/narmada-parikrama/route/', lang)}>
             {t.nav.route}
           </a>
-          <a className={currentRoute === 'travelGuide' ? 'active' : ''} href="/narmada-parikrama/travel-guide/">
+          <a className={currentRoute === 'travelGuide' ? 'active' : ''} href={buildLocalizedPath('/narmada-parikrama/travel-guide/', lang)}>
             {t.nav.travelGuide}
           </a>
-          <a className={currentRoute === 'trips' ? 'active' : ''} href="/trips/">
+          <a className={currentRoute === 'trips' ? 'active' : ''} href={buildLocalizedPath('/trips/', lang)}>
             {t.nav.trips}
           </a>
         </nav>
@@ -504,42 +469,42 @@ function MobileDrawer({ isOpen, onClose, currentRoute, openPlanner }: MobileDraw
           <nav className="mobile-nav-links" aria-label="Mobile links">
             <a
               className={`mobile-nav-item ${currentRoute === 'home' ? 'active' : ''}`}
-              href="/"
+              href={buildLocalizedPath('/', lang)}
               onClick={onClose}
             >
               {t.nav.home}
             </a>
             <a
               className={`mobile-nav-item ${currentRoute === 'parikrama' ? 'active' : ''}`}
-              href="/narmada-parikrama/"
+              href={buildLocalizedPath('/narmada-parikrama/', lang)}
               onClick={onClose}
             >
               {t.nav.parikrama}
             </a>
             <a
               className={`mobile-nav-item ${currentRoute === 'places' ? 'active' : ''}`}
-              href="/narmada-parikrama/places/"
+              href={buildLocalizedPath('/narmada-parikrama/places/', lang)}
               onClick={onClose}
             >
               {t.nav.places}
             </a>
             <a
               className={`mobile-nav-item ${currentRoute === 'route' ? 'active' : ''}`}
-              href="/narmada-parikrama/route/"
+              href={buildLocalizedPath('/narmada-parikrama/route/', lang)}
               onClick={onClose}
             >
               {t.nav.route}
             </a>
             <a
               className={`mobile-nav-item ${currentRoute === 'travelGuide' ? 'active' : ''}`}
-              href="/narmada-parikrama/travel-guide/"
+              href={buildLocalizedPath('/narmada-parikrama/travel-guide/', lang)}
               onClick={onClose}
             >
               {t.nav.travelGuide}
             </a>
             <a
               className={`mobile-nav-item ${currentRoute === 'trips' ? 'active' : ''}`}
-              href="/trips/"
+              href={buildLocalizedPath('/trips/', lang)}
               onClick={onClose}
             >
               {t.nav.trips}
@@ -860,48 +825,50 @@ function PlanModal({ onClose }: PlanModalProps) {
 }
 
 function SiteFooter() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
 
   return (
     <footer>
       <div className="container footer-grid">
         <div>
           <div className="brand footer-brand">
-            <img
-              src="/assets/narmada-parikrama-logo.png"
-              alt="Narmada Parikrama"
-              className="brand-logo"
-              width={42}
-              height={42}
-              loading="lazy"
-            />
-            <span>
-              Narmada<br />
-              <b>Parikrama</b>
-            </span>
+            <a href={buildLocalizedPath('/', lang)} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none', color: 'inherit' }}>
+              <img
+                src="/assets/narmada-parikrama-logo.png"
+                alt="Narmada Parikrama"
+                className="brand-logo"
+                width={42}
+                height={42}
+                loading="lazy"
+              />
+              <span>
+                Narmada<br />
+                <b>Parikrama</b>
+              </span>
+            </a>
           </div>
           <p>{t.home.footerTagline}</p>
           <ContactDetails />
         </div>
         <div>
           <h4>{t.home.footerExplore}</h4>
-          <a href="/">{t.nav.home}</a>
-          <a href="/narmada-parikrama/">{t.nav.parikrama}</a>
-          <a href="/narmada-parikrama/places/">{t.nav.places}</a>
-          <a href="/narmada-parikrama/route/">{t.nav.route}</a>
-          <a href="/narmada-parikrama/travel-guide/">{t.nav.travelGuide}</a>
-          <a href="/narmada-parikrama/faq/">FAQ</a>
-          <a href="/trips/">{t.nav.trips}</a>
+          <a href={buildLocalizedPath('/', lang)}>{t.nav.home}</a>
+          <a href={buildLocalizedPath('/narmada-parikrama/', lang)}>{t.nav.parikrama}</a>
+          <a href={buildLocalizedPath('/narmada-parikrama/places/', lang)}>{t.nav.places}</a>
+          <a href={buildLocalizedPath('/narmada-parikrama/route/', lang)}>{t.nav.route}</a>
+          <a href={buildLocalizedPath('/narmada-parikrama/travel-guide/', lang)}>{t.nav.travelGuide}</a>
+          <a href={buildLocalizedPath('/narmada-parikrama/faq/', lang)}>FAQ</a>
+          <a href={buildLocalizedPath('/trips/', lang)}>{t.nav.trips}</a>
         </div>
         <div>
           <h4>{t.home.footerJourney}</h4>
-          <a href="/narmada-parikrama/route/">{t.home.footerRoutePlanning}</a>
-          <a href="/narmada-parikrama/places/">{t.home.footerSacredPlaces}</a>
-          <a href="/narmada-parikrama/by-car/">{t.nav.byCar || '18-Day Vehicle Yatra'}</a>
-          <a href="/narmada-parikrama/travel-guide/#safety">{t.home.safetyTitle}</a>
-          <a href="/narmada-parikrama/travel-guide/#checklist">{t.home.packingTitle}</a>
-          <a href="/narmada-parikrama/faq/">{t.home.faqTitle || 'FAQ'}</a>
-          <a href="/trips/">{t.home.footerTrips}</a>
+          <a href={buildLocalizedPath('/narmada-parikrama/route/', lang)}>{t.home.footerRoutePlanning}</a>
+          <a href={buildLocalizedPath('/narmada-parikrama/places/', lang)}>{t.home.footerSacredPlaces}</a>
+          <a href={buildLocalizedPath('/narmada-parikrama/by-car/', lang)}>{t.nav.byCar || '18-Day Vehicle Yatra'}</a>
+          <a href={buildLocalizedPath('/narmada-parikrama/travel-guide/#safety', lang)}>{t.home.safetyTitle}</a>
+          <a href={buildLocalizedPath('/narmada-parikrama/travel-guide/#checklist', lang)}>{t.home.packingTitle}</a>
+          <a href={buildLocalizedPath('/narmada-parikrama/faq/', lang)}>{t.home.faqTitle || 'FAQ'}</a>
+          <a href={buildLocalizedPath('/trips/', lang)}>{t.home.footerTrips}</a>
         </div>
       </div>
       <div className="container bottom">
@@ -925,50 +892,63 @@ function SiteFooter() {
 }
 
 function MainApp() {
+  const { lang, setLang } = useLanguage();
   const [path, setPath] = useState(() => (typeof window !== 'undefined' ? window.location.pathname : '/'));
   const [plannerOpen, setPlannerOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const currentRoute = getRouteFromPath(path);
 
-  // Update document title, description, canonical link on route changes
+  // Update document title, description, canonical link on route or lang changes
   useEffect(() => {
-    updateHeadMeta(currentRoute);
-  }, [currentRoute]);
+    updateHeadMeta(currentRoute, lang);
+  }, [currentRoute, lang]);
 
   // Handle popstate for browser back/forward buttons
   useEffect(() => {
     const onPopState = () => {
-      setPath(window.location.pathname);
+      const newPath = window.location.pathname;
+      setPath(newPath);
+      const urlLang = getLanguageFromPath(newPath);
+      if (urlLang !== lang) {
+        setLang(urlLang);
+      }
     };
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);
-  }, []);
+  }, [lang, setLang]);
 
   // Handle old bookmark / hash redirection on homepage
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const hash = window.location.hash;
-    const clean = window.location.pathname.replace(/\/+$/, '') || '/';
+    const clean = stripLanguagePrefix(window.location.pathname).replace(/\/+$/, '') || '/';
+    const currentLang = getLanguageFromPath(window.location.pathname);
     if (clean === '/') {
       if (hash === '#parikrama' || hash === '#about') {
-        window.history.replaceState({}, '', '/narmada-parikrama/');
-        setPath('/narmada-parikrama/');
+        const dest = buildLocalizedPath('/narmada-parikrama/', currentLang);
+        window.history.replaceState({}, '', dest);
+        setPath(dest);
       } else if (hash === '#route') {
-        window.history.replaceState({}, '', '/narmada-parikrama/route/');
-        setPath('/narmada-parikrama/route/');
+        const dest = buildLocalizedPath('/narmada-parikrama/route/', currentLang);
+        window.history.replaceState({}, '', dest);
+        setPath(dest);
       } else if (hash === '#places') {
-        window.history.replaceState({}, '', '/narmada-parikrama/places/');
-        setPath('/narmada-parikrama/places/');
+        const dest = buildLocalizedPath('/narmada-parikrama/places/', currentLang);
+        window.history.replaceState({}, '', dest);
+        setPath(dest);
       } else if (hash === '#compare') {
-        window.history.replaceState({}, '', '/narmada-parikrama/by-car/');
-        setPath('/narmada-parikrama/by-car/');
+        const dest = buildLocalizedPath('/narmada-parikrama/by-car/', currentLang);
+        window.history.replaceState({}, '', dest);
+        setPath(dest);
       } else if (hash === '#trips') {
-        window.history.replaceState({}, '', '/trips/');
-        setPath('/trips/');
+        const dest = buildLocalizedPath('/trips/', currentLang);
+        window.history.replaceState({}, '', dest);
+        setPath(dest);
       } else if (hash === '#faq') {
-        window.history.replaceState({}, '', '/narmada-parikrama/faq/');
-        setPath('/narmada-parikrama/faq/');
+        const dest = buildLocalizedPath('/narmada-parikrama/faq/', currentLang);
+        window.history.replaceState({}, '', dest);
+        setPath(dest);
       } else if (
         hash === '#travel-guide' ||
         hash === '#guide' ||
@@ -981,8 +961,9 @@ function MainApp() {
         hash === '#checklist'
       ) {
         const targetAnchor = (hash === '#travel-guide' || hash === '#guide') ? '' : hash;
-        window.history.replaceState({}, '', `/narmada-parikrama/travel-guide/${targetAnchor}`);
-        setPath('/narmada-parikrama/travel-guide/');
+        const dest = buildLocalizedPath(`/narmada-parikrama/travel-guide/${targetAnchor}`, currentLang);
+        window.history.replaceState({}, '', dest);
+        setPath(dest);
       }
     }
   }, []);
@@ -1011,12 +992,13 @@ function MainApp() {
         return; // standard anchor scroll
       }
 
-      // If it's a cross-page hash link, e.g. /#travel-guide
-      if (href.startsWith('/#')) {
-        const [_, hash] = href.split('#');
+      // If it's a cross-page hash link, e.g. /#travel-guide or /hi/#travel-guide
+      if (href.includes('/#')) {
+        const [targetBase, hash] = href.split('#');
         const currentClean = window.location.pathname.replace(/\/+$/, '') || '/';
-        if (currentClean === '/') {
-          // Already on home, scroll to element
+        const targetClean = targetBase.replace(/\/+$/, '') || '/';
+        if (currentClean === targetClean) {
+          // Already on target page, scroll to element
           const el = document.getElementById(hash);
           if (el) {
             e.preventDefault();
@@ -1024,10 +1006,14 @@ function MainApp() {
             window.history.pushState({}, '', href);
           }
         } else {
-          // On other page, go to home with hash
+          // On other page, go to target page with hash
           e.preventDefault();
           window.history.pushState({}, '', href);
-          setPath('/');
+          setPath(targetBase.endsWith('/') ? targetBase : targetBase + '/');
+          const clickedLang = getLanguageFromPath(href);
+          if (clickedLang !== lang) {
+            setLang(clickedLang);
+          }
           setTimeout(() => {
             const el = document.getElementById(hash);
             if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -1041,13 +1027,17 @@ function MainApp() {
         e.preventDefault();
         window.history.pushState({}, '', href);
         setPath(href);
+        const clickedLang = getLanguageFromPath(href);
+        if (clickedLang !== lang) {
+          setLang(clickedLang);
+        }
         window.scrollTo({ top: 0, behavior: 'instant' });
       }
     };
 
     document.addEventListener('click', handleAnchorClick);
     return () => document.removeEventListener('click', handleAnchorClick);
-  }, []);
+  }, [lang, setLang]);
 
   const openPlanner = () => setPlannerOpen(true);
   const closePlanner = () => setPlannerOpen(false);
